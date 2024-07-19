@@ -4350,7 +4350,7 @@ private static CancellationTokenSource virtualAdCancellationTokenSource = new Ca
 static async Task SendVirtualAdvertisement(ITelegramBotClient botClient, CancellationToken cancellationToken, IBaseRepository<TokenRate> rateRepository, decimal FeeRate)
 {
     var random = new Random();
-    var amounts = new decimal[] { 50, 100, 150, 200, 300, 400, 500, 1000 };
+    var amounts = new decimal[] { 5, 10, 20, 50, 100, 500, 150, 800 };
     var addressChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     bool hasSentAdInQuietHours = false;
     while (!cancellationToken.IsCancellationRequested)
@@ -4423,7 +4423,7 @@ static async Task SendVirtualAdvertisement(ITelegramBotClient botClient, Cancell
         }
 
         // 在1-2分钟内随机等待
-        await Task.Delay(TimeSpan.FromSeconds(random.Next(3600, 4000)), cancellationToken);
+        await Task.Delay(TimeSpan.FromSeconds(random.Next(1800, 3000)), cancellationToken);
     }
 }
 // 在类的成员变量中定义一个定时器和榜单
@@ -10299,7 +10299,7 @@ string fearGreedDescription = GetFearGreedDescription(today);
         
         string channelLink = "tg://resolve?domain=b144444444"; // 使用 'tg://' 协议替换为你的频道链接
         string advertisementText = $"\U0001F4B9实时汇率：<b>100 USDT = {usdtToTrx:#.####} TRX</b>\n\n" +
-            "机器人收款地址:\n (<b>点击自动复制</b>):<code>TF5yprNb7hSmRNb9xHv9yUKrb144444444</code>\n\n" + //手动输入地址
+            " (<b>👩‍💻24小时自助ATM兑换机</b>):<code>TF5yprNb7hSmRNb9xHv9yUKrb144444444</code>\n\n" + //手动输入地址
             "\U00002705 转U自动原地址返TRX,5U起兑!\n" +
             "\U00002705 请勿使用交易所或中心化钱包转账!\n" +
             $"\U00002705 <u>购买能量套餐，单笔转账低至 7TRX！</u>\n" +
