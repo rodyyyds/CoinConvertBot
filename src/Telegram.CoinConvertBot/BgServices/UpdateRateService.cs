@@ -18,6 +18,7 @@ namespace Telegram.CoinConvertBot.BgServices
         private readonly IServiceProvider _serviceProvider;
         private readonly ILogger<UpdateRateService> _logger;
         private readonly FlurlClient client;
+
         public UpdateRateService(
             IConfiguration configuration,
             IServiceProvider serviceProvider,
@@ -33,7 +34,6 @@ namespace Telegram.CoinConvertBot.BgServices
             {
                 client.Settings.HttpClientFactory = new ProxyHttpClientFactory(WebProxy);
             }
-
         }
 
         protected override async Task ExecuteAsync()
@@ -43,99 +43,126 @@ namespace Telegram.CoinConvertBot.BgServices
             using IServiceScope scope = _serviceProvider.CreateScope();
             var _repository = scope.ServiceProvider.GetRequiredService<IBaseRepository<TokenRate>>();
 
-            var rate = _configuration.GetValue("TrxRate", 0m);
-            if (rate > 0)
+            // 设置默认固定汇率
+            decimal fixedRate = 0m;  // 可以在这里修改固定汇率
+
+            if (fixedRate > 0)
             {
+                // 使用固定汇率
                 list.Add(new TokenRate
                 {
                     Id = $"USDT_{Currency.TRX}",
                     Currency = Currency.USDT,
                     ConvertCurrency = Currency.TRX,
                     LastUpdateTime = DateTime.Now,
-                    Rate = rate,
-                    ReverseRate = 1m / rate,
+                    Rate = fixedRate,
+                    ReverseRate = 1m / fixedRate,
                 });
+                _logger.LogInformation("使用固定汇率，USDT -> TRX = {Rate}", fixedRate);
             }
             else
             {
-                var side = "buy";
-                try
+                // 获取配置中的实时汇率
+                var rate = _configuration.GetValue("TrxRate", 0m);
+                if (rate > 0)
                 {
-
-                    var convert1 = await baseUrl
-                        .WithClient(client)
-                        .WithHeaders(new { User_Agent })
-                        .AppendPathSegment("v2/asset/quick/exchange/quote")
-                        //.SetQueryParams()
-                        .PostJsonAsync(new
-                        {
-                            side,
-                            baseCcy = Currency.TRX.ToString(),
-                            quoteCcy = Currency.USDT.ToString(),
-                            rfqSz = 1,
-                            rfqSzCcy = Currency.USDT.ToString(),
-                        })
-                        .ReceiveJson<Root>();
-                    if (convert1.code == 0)
+                    list.Add(new TokenRate
                     {
-                        list.Add(new TokenRate
-                        {
-                            Id = $"USDT_{Currency.TRX}",
-                            Currency = Currency.USDT,
-                            ConvertCurrency = Currency.TRX,
-                            LastUpdateTime = DateTime.Now,
-                            Rate = convert1.data.askBaseSz,
-                            ReverseRate = convert1.data.askPx,
-                        });
-                        _logger.LogInformation("OKX汇率，USDT -> TRX = {Rate}", convert1.data.askBaseSz);
-                    }
-                    else
-                    {
-                        //_logger.LogWarning("TRX -> USDT 汇率获取失败！错误信息：{msg}", convert1.msg ?? convert1.error_message);
-                    }
+                        Id = $"USDT_{Currency.TRX}",
+                        Currency = Currency.USDT,
+                        ConvertCurrency = Currency.TRX,
+                        LastUpdateTime = DateTime.Now,
+                        Rate = rate,
+                        ReverseRate = 1m / rate,
+                    });
                 }
-                catch (Exception e)
+                else
                 {
-                    _logger.LogWarning("TRX -> USDT 汇率获取失败！错误信息：{msg}", e?.InnerException?.Message + "; " + e?.Message);
+                    // 从OKX获取汇率
+                    await FetchRateFromOkx(list);
+                    // 如果从OKX获取汇率失败，则尝试从币安获取
+                    if (!list.Any())
+                    {
+                        await FetchRateFromBinance(list);
+                    }
                 }
             }
-// 如果从OKX获取汇率失败，则尝试从币安获取
-if (!list.Any())
-{
-    try
-    {
-        string binanceBaseUrl = "https://api.binance.com";
-        var response = await binanceBaseUrl
-            .AppendPathSegment("/api/v3/ticker/price")
-            .SetQueryParams(new { symbol = "TRXUSDT" })
-            .GetJsonAsync<BinanceRateResponse>();
 
-        if (response != null && decimal.TryParse(response.price, out decimal binanceRate) && binanceRate > 0)
-        {
-            decimal reverseRate = 1m / binanceRate; // 计算汇率的倒数
-            list.Add(new TokenRate
-            {
-                Id = $"USDT_{Currency.TRX}",
-                Currency = Currency.USDT,
-                ConvertCurrency = Currency.TRX,
-                LastUpdateTime = DateTime.Now,
-                Rate = reverseRate, // 使用倒数作为汇率
-                ReverseRate = binanceRate,
-            });
-            _logger.LogInformation("币安汇率，USDT -> TRX = {Rate}", reverseRate); // 使用倒数值记录日志
-        }
-    }
-    catch (Exception e)
-    {
-        _logger.LogWarning("从币安获取TRX -> USDT 汇率失败！错误信息：{msg}", e.Message);
-    }
-}
             foreach (var item in list)
             {
                 _logger.LogInformation("更新汇率，{a} -> {b} = {c}", item.Currency, item.ConvertCurrency, item.Rate);
                 await _repository.InsertOrUpdateAsync(item);
             }
             _logger.LogInformation("------------------{tips}------------------", "结束更新汇率");
+        }
+
+        private async Task FetchRateFromOkx(List<TokenRate> list)
+        {
+            var side = "buy";
+            try
+            {
+                var convert1 = await baseUrl
+                    .WithClient(client)
+                    .WithHeaders(new { User_Agent })
+                    .AppendPathSegment("v2/asset/quick/exchange/quote")
+                    .PostJsonAsync(new
+                    {
+                        side,
+                        baseCcy = Currency.TRX.ToString(),
+                        quoteCcy = Currency.USDT.ToString(),
+                        rfqSz = 1,
+                        rfqSzCcy = Currency.USDT.ToString(),
+                    })
+                    .ReceiveJson<Root>();
+                if (convert1.code == 0)
+                {
+                    list.Add(new TokenRate
+                    {
+                        Id = $"USDT_{Currency.TRX}",
+                        Currency = Currency.USDT,
+                        ConvertCurrency = Currency.TRX,
+                        LastUpdateTime = DateTime.Now,
+                        Rate = convert1.data.askBaseSz,
+                        ReverseRate = convert1.data.askPx,
+                    });
+                    _logger.LogInformation("OKX汇率，USDT -> TRX = {Rate}", convert1.data.askBaseSz);
+                }
+            }
+            catch (Exception e)
+            {
+                _logger.LogWarning("TRX -> USDT 汇率获取失败！错误信息：{msg}", e?.InnerException?.Message + "; " + e?.Message);
+            }
+        }
+
+        private async Task FetchRateFromBinance(List<TokenRate> list)
+        {
+            try
+            {
+                string binanceBaseUrl = "https://api.binance.com";
+                var response = await binanceBaseUrl
+                    .AppendPathSegment("/api/v3/ticker/price")
+                    .SetQueryParams(new { symbol = "TRXUSDT" })
+                    .GetJsonAsync<BinanceRateResponse>();
+
+                if (response != null && decimal.TryParse(response.price, out decimal binanceRate) && binanceRate > 0)
+                {
+                    decimal reverseRate = 1m / binanceRate; // 计算汇率的倒数
+                    list.Add(new TokenRate
+                    {
+                        Id = $"USDT_{Currency.TRX}",
+                        Currency = Currency.USDT,
+                        ConvertCurrency = Currency.TRX,
+                        LastUpdateTime = DateTime.Now,
+                        Rate = reverseRate, // 使用倒数作为汇率
+                        ReverseRate = binanceRate,
+                    });
+                    _logger.LogInformation("币安汇率，USDT -> TRX = {Rate}", reverseRate); // 使用倒数值记录日志
+                }
+            }
+            catch (Exception e)
+            {
+                _logger.LogWarning("从币安获取TRX -> USDT 汇率失败！错误信息：{msg}", e.Message);
+            }
         }
     }
 
@@ -147,21 +174,21 @@ if (!list.Any())
         public decimal askQuoteSz { get; set; }
         public decimal askBaseSz { get; set; }
     }
-class BinanceRateResponse
-{
-    public string symbol { get; set; }
-    public string price { get; set; }
-}
+
+    class BinanceRateResponse
+    {
+        public string symbol { get; set; }
+        public string price { get; set; }
+    }
+
     class Root
     {
         public int code { get; set; }
-#pragma warning disable CS8618 // 在退出构造函数时，不可为 null 的字段必须包含非 null 值。请考虑声明为可以为 null。
         public Datum data { get; set; }
         public string detailMsg { get; set; }
         public string error_code { get; set; }
         public string error_message { get; set; }
         public string msg { get; set; }
-#pragma warning restore CS8618 // 在退出构造函数时，不可为 null 的字段必须包含非 null 值。请考虑声明为可以为 null。
     }
 
     enum OkxSide
@@ -169,5 +196,4 @@ class BinanceRateResponse
         Buy,
         Sell
     }
-
 }
