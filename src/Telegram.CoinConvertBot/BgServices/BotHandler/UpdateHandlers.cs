@@ -12079,7 +12079,7 @@ poe gpt：https://poe.com/login
 api大全：https://www.apispace.com/#/api/detail/?productID=89
 韩小韩接口：https://api.vvhan.com/
 大象工具：https://www.sunzhongwei.com/go/tools
-机器人代码地址：https://github.com/xiaobai2023123412412343/CoinConvertBot/blob/master/wiki/manual_RUN.md";
+机器人代码地址：https://github.com/jiqiren585/CoinConvertBot/blob/master/wiki/manual_RUN.md";
 
     await botClient.SendTextMessageAsync(
         chatId: update.CallbackQuery.Message.Chat.Id,
