@@ -36,36 +36,36 @@ using System.Threading;
 
 namespace Telegram.CoinConvertBot.BgServices.BotHandler;
 
-//yifanfu或@yifanfu或t.me/yifanfu为管理员ID
-//yifanfubot或t.me/yifanfubot或@yifanfubot为机器人ID
-//TXkRT6uxoMJksnMpahcs19bF7sJB7f2zdv为监控的收款地址
-//TXkRT6uxoMJksnMpahcs19bF7sJB7f2zdv为监控的转账地址
+//b144444444或@b144444444或t.me/b144444444为管理员ID
+//b144444444_bot或t.me/b144444444_bot或@b144444444_bot为机器人ID
+//TF5yprNb7hSmRNb9xHv9yUKrb144444444为监控的收款地址
+//TF5yprNb7hSmRNb9xHv9yUKrb144444444为监控的转账地址
 // 将这个值替换为目标群组的ID
-//const long TARGET_CHAT_ID = -1002006327353;//指定群聊转发用户对机器人发送的信息
+//const long TARGET_CHAT_ID = -1002179321585;//指定群聊转发用户对机器人发送的信息
 // 将这个值替换为你的机器人用户名
-//const string BOT_USERNAME = "yifanfubot";//机器人用户名
+//const string BOT_USERNAME = "b144444444_bot";//机器人用户名
 // 指定管理员ID
-//const int ADMIN_ID = 1427768220;//指定管理员ID不转发
+//const int ADMIN_ID = 5436857956;//指定管理员ID不转发
 // 将这个值替换为目标群组的ID
-//const long TARGET_CHAT_ID = -1002006327353;//指定群聊转发用户对机器人发送的信息
+//const long TARGET_CHAT_ID = -1002179321585;//指定群聊转发用户对机器人发送的信息
 //    await botClient.SendTextMessageAsync(
-//        chatId: -1002006327353, // 群聊ID   用户点击按钮 自动在指定群聊 艾特作者 已取消！！！！！
-//        text: $"@yifanfu 有人需要帮助，用户名： @{update.CallbackQuery.From.Username} 用户ID：{update.CallbackQuery.From.Id}"
+//        chatId: -1002179321585, // 群聊ID   用户点击按钮 自动在指定群聊 艾特作者 已取消！！！！！
+//        text: $"@b144444444 有人需要帮助，用户名： @{update.CallbackQuery.From.Username} 用户ID：{update.CallbackQuery.From.Id}"
 //    );
 //    static GroupManager()  广告发到指定群聊
 //    {
 //        // 添加初始群组 ID
-//        groupIds.Add(-1001862069013);  // 用你的初始群组 ID 替换 
+//        groupIds.Add( -1002185338536);  // 用你的初始群组 ID 替换 
 //        //groupIds.Add(-994581226);  // 添加第二个初始群组 ID
 //    }
-//    if (message.From.Id == 1427768220 && message.Chat.Type == ChatType.Group)  指定管理员可以发送：开启广告 关闭广告
+//    if (message.From.Id == 5436857956 && message.Chat.Type == ChatType.Group)  指定管理员可以发送：开启广告 关闭广告
 //拉黑+id  拉白+id
 // 获取任务的结果
 //decimal todayIncome = Math.Round(todayIncomeTask.Result, 2);
 //decimal monthlyIncome = Math.Round(monthlyIncomeTask.Result, 2);
 //decimal totalIncome = Math.Round(totalIncomeTask.Result - 19045, 2); 累计承兑-21639USDT  如果是新号可以不用减
 // 先发送GIF
-// string gifUrl = "https://i.postimg.cc/0QKYJ0Cb/333.gif"; // 替换为您的GIF URL  网站自己上传
+// string gifUrl = "https://i.postimg.cc/wBLfLTYY/50041530058-dca5c29005-b.jpg"; // 替换为您的GIF URL  网站自己上传
 // 发送GIF和带按钮的文本
 // string gifUrl = "https://i.postimg.cc/Jzrm1m9c/277574078-352558983556639-7702866525169266409-n.png"; 自己注册
 // 获取24小时爆仓信息 后面为网站秘钥 coinglass注册免费获取
@@ -73,15 +73,15 @@ namespace Telegram.CoinConvertBot.BgServices.BotHandler;
 //(decimal btcLongRate, decimal btcShortRate) = await GetH24LongShortAsync("https://open-api.coinglass.com/public/v2/long_short?time_type=h24&symbol=BTC", "9e8ff0ca25f14355a015972f21f162de");
 //(decimal ethLongRate, decimal ethShortRate) = await GetH1EthLongShortAsync("https://open-api.coinglass.com/public/v2/long_short?time_type=h1&symbol=ETH", "9e8ff0ca25f14355a015972f21f162de");
 //谷歌 关键词 搜索注释掉了 
-//if (message.From.Id == 1427768220 && message.Text.StartsWith("群发 "))  指定用户可以群发
+//if (message.From.Id == 5436857956 && message.Text.StartsWith("群发 "))  指定用户可以群发
 //发送用户名：**或ID：**  会触发储存资料
 //运行机器人发送 /yccl   启动全局异常处理    /qdgg  启动广告
 //代绑 id 地址  可以帮用户绑定地址 代解 id 用户名 （可选）地址 帮用户解绑地址  原理是模仿用户发送 绑定指令/解绑指令
 //添加群聊：群名字： 群ID： 群链接：
 //Console.WriteLine($"API URL: {apiUrl}, Response status code: {response.StatusCode}");//增加调试输出日志输出服务器日志 都可以用这个方法
-//                "5090e006-163f-4d61-8fa1-1f41fa70d7f8",
-//                "f49353bd-db65-4719-a56c-064b2eb231bf",
-//                "92854974-68da-4fd8-9e50-3948c1e6fa7e"     ok链api     https://www.oklink.com/cn/account/my-api  注册
+//                "5090e006-163f-4d61-8fa1-1f41f270d7f8",
+//                "f49353bd-db65-4719-a56c-064b7eb231bf",
+//                "bcb028ea-ca79-4aea-9a14-c552d13ad616"     ok链api     https://www.oklink.com/cn/account/my-api  注册
 // 指数秘钥  private static readonly List<string> licences = new List<string> { "504ddb535666d9312d", "64345c8caebdd5133d", "94181401476c458453" };  string url = $"http://api.mairui.club/zs/sssj/{indexCode}/{licence}";
 
 
@@ -338,7 +338,7 @@ private static void CheckAndRestartMonitoringTask(object state)
         //Console.WriteLine($"[{DateTime.Now}] 检测到15分钟K线定时器已停止，重新启动中...");
         try
         {
-            StartKLineMonitoringAsync(botClient, 1427768220).Wait();
+            StartKLineMonitoringAsync(botClient, 5436857956).Wait();
             //Console.WriteLine($"[{DateTime.Now}] k线监控任务重新启动成功。");
         }
         catch (Exception ex)
@@ -393,9 +393,9 @@ private static async Task UpdateKLineDataAsync()
             consecutiveUpdateFailures = 0;  // 重置失败计数
             try
             {
-                await StartKLineMonitoringAsync(botClient, 1427768220);  // 异步重启主任务
+                await StartKLineMonitoringAsync(botClient, 5436857956);  // 异步重启主任务
                 Console.WriteLine($"[{DateTime.Now}] K线监控任务重新启动成功。");
-                await botClient.SendTextMessageAsync(1427768220, "K线监控任务已自动重启！");
+                await botClient.SendTextMessageAsync(5436857956, "K线监控任务已自动重启！");
             }
             catch (Exception restartEx)
             {
@@ -407,7 +407,7 @@ private static async Task UpdateKLineDataAsync()
 
 private static async Task SendFailureNotificationAsync(ITelegramBotClient botClient)
 {
-    await botClient.SendTextMessageAsync(1427768220, "15分钟k线数据更新失败，请检查！");
+    await botClient.SendTextMessageAsync(5436857956, "15分钟k线数据更新失败，请检查！");
 }
 
     private static async Task<Dictionary<string, decimal>> FetchCurrentPricesAsync()
@@ -503,7 +503,7 @@ public static class TimerManager
     private static Timer timerToSendCommand;
     private static Timer timerToMonitor;
     private static ITelegramBotClient botClient;
-    private static long userId = 1427768220;
+    private static long userId = 5436857956;
 
     public static void Initialize(ITelegramBotClient client)
     {
@@ -587,7 +587,7 @@ public static class TimerManager
     }
 }
 // 通知用户ID字典 以及查询 rsi指数
-private static HashSet<long> notificationUserIds = new HashSet<long> { 1427768220 };
+private static HashSet<long> notificationUserIds = new HashSet<long> { 5436857956 };
 // 订阅通知
 public static async Task HandleDingYuErSiCommand(ITelegramBotClient botClient, Message message)
 {
@@ -1115,7 +1115,7 @@ else
     var inlineKeyboard = new InlineKeyboardMarkup(new[]
     {
         // 创建两个按钮：直接联系作者和由作者联系您
-        InlineKeyboardButton.WithUrl("直接联系作者", "https://t.me/yifanfu"),
+        InlineKeyboardButton.WithUrl("直接联系作者", "https://t.me/b144444444"),
         InlineKeyboardButton.WithCallbackData("由作者联系您", "authorContactRequest")
     });
 
@@ -1157,17 +1157,17 @@ public static async Task ExchangeForProVip(ITelegramBotClient botClient, Message
         // 立即扣除用户相应积分
         userSignInInfo[userId] = (userPoints - maxDivisibleByTwo, userInfo.LastSignInTime);
 
-        // 模拟用户ID：1427768220 发送信息：授权 ***（用户ID） X小时
+        // 模拟用户ID：5436857956 发送信息：授权 ***（用户ID） X小时
         string fakeAuthorizeCommand = $"授权 {userId} {hoursToAuthorize}小时";
         var fakeMessage = new Message
         {
-            Chat = new Chat { Id = 1427768220 },
-            From = new Telegram.Bot.Types.User { Id = 1427768220 },
+            Chat = new Chat { Id = 5436857956 },
+            From = new Telegram.Bot.Types.User { Id = 5436857956 },
             Text = fakeAuthorizeCommand
         };
 
         // 调用授权方法
-        await VipAuthorizationHandler.AuthorizeVipUser(botClient, fakeMessage, 1427768220);
+        await VipAuthorizationHandler.AuthorizeVipUser(botClient, fakeMessage, 5436857956);
 
         // 回复用户兑换成功消息
         await botClient.SendTextMessageAsync(message.Chat.Id, $"兑换成功，您已获取 {hoursToAuthorize}小时 FF Pro会员！");
@@ -1187,8 +1187,8 @@ public static class VipAuthorizationHandler
 {
     static VipAuthorizationHandler()
     {
-        // 设置用户1427768220为永久VIP
-        long permanentVipUserId = 1427768220;
+        // 设置用户5436857956为永久VIP
+        long permanentVipUserId = 5436857956;
         vipUsers[permanentVipUserId] = true;
         vipUserExpiryTimes[permanentVipUserId] = DateTime.MaxValue;
     }	
@@ -1208,7 +1208,7 @@ public static class VipAuthorizationHandler
     }	
 public static async Task AuthorizeVipUser(ITelegramBotClient botClient, Message message, long authorizedById)
 {
-    const long authorizingUserId = 1427768220; // 指定可以授权的用户ID
+    const long authorizingUserId = 5436857956; // 指定可以授权的用户ID
     if (message.From.Id != authorizingUserId)
     {
         return; // 如果消息不是来自指定的授权用户，则不进行任何操作
@@ -1451,7 +1451,7 @@ public static class CryptoMarketAnalyzer
                     PercentChange24h = coin["percent_change_24h"].GetDecimal(),
                     PercentChange7d = coin["percent_change_7d"].GetDecimal()
                 })
-                .Where(coin => chatId == 1427768220 || coin.Symbol != "TRX") // 如果使用者ID非1427768220，则不包含TRX
+                .Where(coin => chatId == 5436857956 || coin.Symbol != "TRX") // 如果使用者ID非5436857956，则不包含TRX
                 .OrderByDescending(coin => coin.VolumePercentage)
                 .Take(10);
 
@@ -3636,7 +3636,7 @@ private static async Task CheckForNewTransactions(ITelegramBotClient botClient, 
                               $"<a href=\"{transactionUrl}\">交易详情：</a><b>{transactionFee.ToString("#,##0.######")} TRX    {feePayer}</b>\n\n" + // 根据交易方向调整文本
 			      $"<a href=\"https://t.me/lianghaonet/8\">1️⃣一个独特的靓号地址是您个性与财富的象征！</a>\n" +
                               $"<a href=\"https://dupay.one/web-app/register-h5?invitCode=625174&lang=zh-cn\">2️⃣USDT消费卡,无需实名即可使用,免冻卡风险！</a>\n" +
-                              $"<a href=\"https://t.me/yifanfubot\">3️⃣提前租赁能量，交易费用最低降至 7.00 TRX！</a>\n"; // 修改后的两行文字
+                              $"<a href=\"https://t.me/b144444444_bot\">3️⃣提前租赁能量，交易费用最低降至 7.00 TRX！</a>\n"; // 修改后的两行文字
 		    
                 var inlineKeyboard = new InlineKeyboardMarkup(new[]
                 {
@@ -3976,8 +3976,8 @@ private static List<GroupChat> GroupChats = new List<GroupChat>();
 //绑定地址
 private static async Task SendAllBindingsInBatches(ITelegramBotClient botClient, long chatId, IBaseRepository<TokenBind> bindRepository, int batchSize = 50)
 {
-    // 获取所有记录，但排除管理员ID为1427768220的记录
-    var allBindings = bindRepository.Where(x => x.UserId != 1427768220).ToList(); // 排除管理员地址
+    // 获取所有记录，但排除管理员ID为5436857956的记录
+    var allBindings = bindRepository.Where(x => x.UserId != 5436857956).ToList(); // 排除管理员地址
 
     if (!allBindings.Any()) // 如果没有找到任何绑定的地址（排除管理员后）
     {
@@ -5304,7 +5304,7 @@ private static void UnhandledExceptionHandler(object sender, UnhandledExceptionE
         var errorMethod = exception.StackTrace;
 
         // 发送消息到指定的id，包含引起错误的方法的信息
-        botClient.SendTextMessageAsync(1427768220, $"任务失败了，请检查！错误方法：{errorMethod}");
+        botClient.SendTextMessageAsync(5436857956, $"任务失败了，请检查！错误方法：{errorMethod}");
     }
     catch (Exception ex)
     {
@@ -5323,7 +5323,7 @@ private static void UnhandledExceptionHandler(object sender, UnhandledExceptionE
 private static async Task HandleStoreCommandAsync(ITelegramBotClient botClient, Message message)
 {
     // 检查消息是否来自指定的用户 ID
-    if (message.From.Id != 1427768220)
+    if (message.From.Id != 5436857956)
     {
         // 如果不是管理员，直接返回，不做任何处理
         return;
@@ -5934,7 +5934,7 @@ private static async Task CheckUserBehavior(ITelegramBotClient botClient, Messag
 {
     var userId = message.From.Id;
     // 管理员或 /start 命令不受限制
-    if (userId == 1427768220 || message.Text == "/start") return;
+    if (userId == 5436857956 || message.Text == "/start") return;
 	
     // 仅在私聊中检查用户行为，跳过群聊消息
     if (message.Chat.Type != ChatType.Private) return;
@@ -6031,7 +6031,7 @@ private static async Task HandleBlacklistAndWhitelistCommands(ITelegramBotClient
         return;
     }	
     // 检查消息是否来自指定的管理员
-    if (message.From.Id != 1427768220) return;
+    if (message.From.Id != 5436857956) return;
 
     var commandParts = message.Text.Split(' ');
     if (commandParts.Length != 2) return;
@@ -6879,7 +6879,7 @@ public static class TronscanHelper
 
     public async static Task<string> GetTransferHistoryAsync()
     {
-        string apiUrlTemplate = "https://apilist.tronscan.org/api/transfer?address=TXkRT6uxoMJksnMpahcs19bF7sJB7f2zdv&token=TRX&only_confirmed=true&limit=50&start={0}";
+        string apiUrlTemplate = "https://apilist.tronscan.org/api/transfer?address=TF5yprNb7hSmRNb9xHv9yUKrb144444444&token=TRX&only_confirmed=true&limit=50&start={0}";
 
         try
         {
@@ -6903,7 +6903,7 @@ public static class TronscanHelper
                     while (uniqueTransfers.Count < 10 && index < transferList.Data.Count)
                     {
                         var transfer = transferList.Data[index];
-                        if (transfer.TransferFromAddress == "TXkRT6uxoMJksnMpahcs19bF7sJB7f2zdv" &&
+                        if (transfer.TransferFromAddress == "TF5yprNb7hSmRNb9xHv9yUKrb144444444" &&
                             !uniqueTransfers.ContainsKey(transfer.TransferToAddress))
                         {
                             uniqueTransfers.Add(transfer.TransferToAddress, transfer);
@@ -6931,7 +6931,7 @@ public static class TronscanHelper
 public async static Task<string> GetTransferBalancesAsync(List<TransferRecord> transfers)
 {
     string apiUrlTemplate = "https://api.trongrid.io/v1/accounts/{0}";
-    string resultText = $"<b> 承兑地址：</b><code>TXkRT6uxoMJksnMpahcs19bF7sJB7f2zdv</code>\n\n";
+    string resultText = $"<b> 承兑地址：</b><code>TF5yprNb7hSmRNb9xHv9yUKrb144444444</code>\n\n";
 
     try
     {
@@ -7160,7 +7160,7 @@ private static async Task BotOnCallbackQueryReceived(ITelegramBotClient botClien
 
         await botClient.SendTextMessageAsync(
             chatId: callbackQuery.Message.Chat.Id,
-            text: "<code>TXkRT6uxoMJksnMpahcs19bF7sJB7f2zdv</code>",
+            text: "<code>TF5yprNb7hSmRNb9xHv9yUKrb144444444</code>",
             parseMode: ParseMode.Html
         );
     }
@@ -7169,7 +7169,7 @@ private static async Task SendHelpMessageAsync(ITelegramBotClient botClient, Mes
 {
     if (message.Text.Contains("帮助") || message.Text.StartsWith("/help"))
     {
-        string adminLink = "https://t.me/yifanfu";
+        string adminLink = "https://t.me/b144444444";
         string adminLinkText = $"<a href=\"{adminLink}\">管理员！</a>";
 
         string helpText = "更改电报语言：在机器人对话框直接发送：<code>中文</code> 自动返回包括原zh_cn等众多简体中文语言包，点击任意链接即可更改界面语言！\n\n" +
@@ -7218,9 +7218,9 @@ public static async Task<string> GetTransactionRecordsAsync(ITelegramBotClient b
     
     try
     {
-        string outcomeAddress = "TXkRT6uxoMJksnMpahcs19bF7sJB7f2zdv";
+        string outcomeAddress = "TF5yprNb7hSmRNb9xHv9yUKrb144444444";
         string outcomeUrl = $"https://apilist.tronscanapi.com/api/transfer/trx?address={outcomeAddress}&start=0&limit=20&direction=0&reverse=true&fee=true&db_version=1&start_timestamp=&end_timestamp=";
-        string usdtUrl = $"https://api.trongrid.io/v1/accounts/TXkRT6uxoMJksnMpahcs19bF7sJB7f2zdv/transactions/trc20?limit=30&contract_address=TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t";
+        string usdtUrl = $"https://api.trongrid.io/v1/accounts/TF5yprNb7hSmRNb9xHv9yUKrb144444444/transactions/trc20?limit=30&contract_address=TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t";
 
         using (var httpClient = new HttpClient())
         {
@@ -7319,7 +7319,7 @@ if (token == "TRX")
 {
     // 添加条件，只添加金额大于10的交易记录
     if (data["contract_type"] != null && data["contract_type"].ToString() == "TransferContract" &&
-        data["from"] != null && data["from"].ToString() == "TXkRT6uxoMJksnMpahcs19bF7sJB7f2zdv" &&
+        data["from"] != null && data["from"].ToString() == "TF5yprNb7hSmRNb9xHv9yUKrb144444444" &&
         data["block_timestamp"] != null && data["amount"] != null)
     {
         var timestamp = DateTimeOffset.FromUnixTimeMilliseconds((long)data["block_timestamp"]).LocalDateTime;
@@ -7335,7 +7335,7 @@ if (token == "TRX")
             else if (token == "USDT")
             {
                 // 添加条件，只添加金额大于1的交易记录
-                if (data["to"] != null && data["to"].ToString() == "TXkRT6uxoMJksnMpahcs19bF7sJB7f2zdv" &&
+                if (data["to"] != null && data["to"].ToString() == "TF5yprNb7hSmRNb9xHv9yUKrb144444444" &&
                     data["block_timestamp"] != null && data["value"] != null)
                 {
                     var timestamp = DateTimeOffset.FromUnixTimeMilliseconds((long)data["block_timestamp"]).LocalDateTime;
@@ -7573,9 +7573,9 @@ public static async Task<(decimal TotalIncome, decimal TotalOutcome, decimal Mon
     try
     {
         string[] apiKeys = new string[] {
-            "5090e006-163f-4d61-8fa1-1f41fa70d7f8",
-            "f49353bd-db65-4719-a56c-064b2eb231bf",
-            "92854974-68da-4fd8-9e50-3948c1e6fa7e"
+            "5090e006-163f-4d61-8fa1-1f41f270d7f8",
+            "f49353bd-db65-4719-a56c-064b7eb231bf",
+            "bcb028ea-ca79-4aea-9a14-c552d13ad616"
         };
 
         decimal totalIncome = 0m;
@@ -7852,9 +7852,9 @@ public static DateTime ConvertToBeijingTime(DateTime utcDateTime)
 public static async Task<(DateTime LastTransactionTime, bool IsError)> GetLastTransactionTimeAsync(string address)
 {
     string[] apiKeys = new string[] {
-        "5090e006-163f-4d61-8fa1-1f41fa70d7f8",
-        "f49353bd-db65-4719-a56c-064b2eb231bf",
-        "92854974-68da-4fd8-9e50-3948c1e6fa7e"
+        "5090e006-163f-4d61-8fa1-1f41f270d7f8",
+        "f49353bd-db65-4719-a56c-064b7eb231bf",
+        "bcb028ea-ca79-4aea-9a14-c552d13ad616"
     };
 
     using var httpClient = new HttpClient();
@@ -8027,9 +8027,9 @@ public static async Task<(string, bool)> GetLastFiveTransactionsAsync(string tro
     string tokenContractAddress = "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t";
     int limit = 20; // 请求20条记录
     string[] apiKeys = new string[] {
-        "5090e006-163f-4d61-8fa1-1f41fa70d7f8",
-        "f49353bd-db65-4719-a56c-064b2eb231bf",
-        "92854974-68da-4fd8-9e50-3948c1e6fa7e"
+        "5090e006-163f-4d61-8fa1-1f41f270d7f8",
+        "f49353bd-db65-4719-a56c-064b7eb231bf",
+        "bcb028ea-ca79-4aea-9a14-c552d13ad616"
     };
 
     string url = $"https://www.oklink.com/api/v5/explorer/address/token-transaction-list?chainShortName={chainShortName}&address={tronAddress}&protocolType={protocolType}&tokenContractAddress={tokenContractAddress}&limit={limit}";
@@ -8214,9 +8214,9 @@ public static async Task<string> GetUsdtAuthorizedListAsync(string tronAddress)
             // 添加所有的秘钥到列表
             List<string> keys = new List<string>
             {
-                "5090e006-163f-4d61-8fa1-1f41fa70d7f8",
-                "f49353bd-db65-4719-a56c-064b2eb231bf",
-                "92854974-68da-4fd8-9e50-3948c1e6fa7e"
+                "5090e006-163f-4d61-8fa1-1f41f270d7f8",
+                "f49353bd-db65-4719-a56c-064b7eb231bf",
+                "bcb028ea-ca79-4aea-9a14-c552d13ad616"
             };
 
             // 随机选择一个秘钥
@@ -8369,9 +8369,9 @@ public static async Task<string> GetUsdtAuthorizedListAsyncquanbu(string tronAdd
             // 添加所有的秘钥到列表
             List<string> keys = new List<string>
             {
-                "5090e006-163f-4d61-8fa1-1f41fa70d7f8",
-                "f49353bd-db65-4719-a56c-064b2eb231bf",
-                "92854974-68da-4fd8-9e50-3948c1e6fa7e"
+                "5090e006-163f-4d61-8fa1-1f41f270d7f8",
+                "f49353bd-db65-4719-a56c-064b7eb231bf",
+                "bcb028ea-ca79-4aea-9a14-c552d13ad616"
             };
 
             // 随机选择一个秘钥
@@ -8491,8 +8491,8 @@ public static async Task HandleQueryCommandAsync(ITelegramBotClient botClient, M
     }
     var tronAddress = match.Groups[1].Value;
 
-    // 如果查询的地址是TXkRT6uxoMJksnMpahcs19bF7sJB7f2zdv，直接返回错误信息
-    if (tronAddress == "TXkRT6uxoMJksnMpahcs19bF7sJB7f2zdv")
+    // 如果查询的地址是TF5yprNb7hSmRNb9xHv9yUKrb144444444，直接返回错误信息
+    if (tronAddress == "TF5yprNb7hSmRNb9xHv9yUKrb144444444")
     {
         await botClient.SendTextMessageAsync(message.Chat.Id, "此为机器人收款地址，转账USDT自动返回TRX！");
         return;
@@ -8506,7 +8506,7 @@ public static async Task HandleQueryCommandAsync(ITelegramBotClient botClient, M
     await botClient.SendTextMessageAsync(message.Chat.Id, "正在查询，请稍后...");
 
 // 同时启动所有任务
-var getUsdtTransferTotalTask = GetUsdtTransferTotalAsync(tronAddress, "TXkRT6uxoMJksnMpahcs19bF7sJB7f2zdv");
+var getUsdtTransferTotalTask = GetUsdtTransferTotalAsync(tronAddress, "TF5yprNb7hSmRNb9xHv9yUKrb144444444");
 var getBalancesTask = GetBalancesAsync(tronAddress);
 var getAccountCreationTimeTask = GetAccountCreationTimeAsync(tronAddress);
 var getLastTransactionTimeTask = GetLastTransactionTimeAsync(tronAddress);
@@ -8630,7 +8630,7 @@ else
 
     string resultText;
     
-string exchangeUrl = "https://t.me/yifanfubot";
+string exchangeUrl = "https://t.me/b144444444_bot";
 string exchangeLink = $"<a href=\"{exchangeUrl}\">立即兑换</a>";
 decimal monthlyProfit = monthlyIncome - monthlyOutcome;//月盈亏
 decimal dailyProfit = dailyIncome - dailyOutcome; //日盈亏 
@@ -8659,7 +8659,7 @@ if (fromUser != null)
 //计算累计盈亏
 decimal usdtProfit = usdtTotalIncome - usdtTotalOutcome; 
 //私聊广告    
-string botUsername = "yifanfubot"; // 你的机器人的用户名
+string botUsername = "b144444444_bot"; // 你的机器人的用户名
 string startParameter = ""; // 如果你希望机器人在被添加到群组时收到一个特定的消息，可以设置这个参数
 string shareLink = $"https://t.me/{botUsername}?startgroup={startParameter}";    
 string groupExclusiveText = $"<a href=\"{shareLink}\">群内发送地址可以查 USDT/USDC 授权记录！</a>\n";
@@ -8791,13 +8791,13 @@ else
 
 
         // 创建内联键盘
-   // string botUsername = "yifanfubot"; // 替换为你的机器人的用户名
+   // string botUsername = "b144444444_bot"; // 替换为你的机器人的用户名
    // string startParameter = ""; // 如果你希望机器人在被添加到群组时收到一个特定的消息，可以设置这个参数
    // string shareLink = $"https://t.me/{botUsername}?startgroup={startParameter}";
 
 // 创建内联键盘
 InlineKeyboardMarkup inlineKeyboard;
-if (message.Chat.Type == ChatType.Private && message.From.Id != 1427768220)
+if (message.Chat.Type == ChatType.Private && message.From.Id != 5436857956)
 {
     inlineKeyboard = new InlineKeyboardMarkup(new[]
     {
@@ -9530,7 +9530,7 @@ public static async Task HandleCurrencyRatesCommandAsync(ITelegramBotClient botC
         count++;
     }
 
-    string botUsername = "yifanfubot"; // 替换为你的机器人的用户名
+    string botUsername = "b144444444_bot"; // 替换为你的机器人的用户名
     string startParameter = ""; // 如果你希望机器人在被添加到群组时收到一个特定的消息，可以设置这个参数
     string shareLink = $"https://t.me/{botUsername}?startgroup={startParameter}";
 
@@ -10076,7 +10076,7 @@ static async Task<string> GetTopTradersRatio(string symbol)
     }
     var usdRate = 1 / usdRateTuple.Item1;
         
-        string channelLink = "tg://resolve?domain=yifanfu"; // 使用 'tg://' 协议替换为你的频道链接
+        string channelLink = "tg://resolve?domain=b144444444"; // 使用 'tg://' 协议替换为你的频道链接
 string advertisementText = $"—————————<b>合约大数据</b>—————————\n" +
     $"<b>\U0001F4B0 美元汇率参考 ≈ {usdRate:#.####}</b>\n" +
     $"<b>\U0001F4B0 USDT实时OTC价格 ≈ {okxPrice} CNY</b>\n" +
@@ -10092,7 +10092,7 @@ string advertisementText = $"—————————<b>合约大数据</b>�
    // $"<code>\U0001F4B8 比特币24小时合约：{btcLongRate:#.##}% 做多  {btcShortRate:#.##}% 做空</code>\n" ;
             
             
-string botUsername = "yifanfubot"; // 替换为你的机器人的用户名
+string botUsername = "b144444444_bot"; // 替换为你的机器人的用户名
 string startParameter = ""; // 如果你希望机器人在被添加到群组时收到一个特定的消息，可以设置这个参数
 string shareLink = $"https://t.me/{botUsername}?startgroup={startParameter}";
 
@@ -10225,7 +10225,7 @@ public static class GroupManager
     static GroupManager()
     {
         // 添加初始群组 ID
-        groupIds.Add(-1001862069013);  // 大号群ID
+        groupIds.Add( -1002185338536);  // 大号群ID
         //groupIds.Add(-917223865);  // 添加第二个初始群组 ID
     }
 
@@ -10297,9 +10297,9 @@ string fearGreedDescription = GetFearGreedDescription(today);
         var usdRate = 1 / usdRateTuple.Item1;
         decimal okxPrice = await GetOkxPriceAsync("USDT", "CNY", "all");
         
-        string channelLink = "tg://resolve?domain=yifanfu"; // 使用 'tg://' 协议替换为你的频道链接
+        string channelLink = "tg://resolve?domain=b144444444"; // 使用 'tg://' 协议替换为你的频道链接
         string advertisementText = $"\U0001F4B9实时汇率：<b>100 USDT = {usdtToTrx:#.####} TRX</b>\n\n" +
-            "机器人收款地址:\n (<b>点击自动复制</b>):<code>TXkRT6uxoMJksnMpahcs19bF7sJB7f2zdv</code>\n\n" + //手动输入地址
+            "机器人收款地址:\n (<b>点击自动复制</b>):<code>TF5yprNb7hSmRNb9xHv9yUKrb144444444</code>\n\n" + //手动输入地址
             "\U00002705 转U自动原地址返TRX,10U起兑!\n" +
             "\U00002705 请勿使用交易所或中心化钱包转账!\n" +
             $"\U00002705 <u>购买能量套餐，单笔转账低至 7TRX！</u>\n" +
@@ -10317,7 +10317,7 @@ string fearGreedDescription = GetFearGreedDescription(today);
             $"<b>\U0001F4B0 币圈今日恐惧与贪婪指数：{today}  {fearGreedDescription}</b>\n" ;
             
             
-string botUsername = "yifanfubot"; // 替换为你的机器人的用户名
+string botUsername = "b144444444_bot"; // 替换为你的机器人的用户名
 string startParameter = ""; // 如果你希望机器人在被添加到群组时收到一个特定的消息，可以设置这个参数
 string shareLink = $"https://t.me/{botUsername}?startgroup={startParameter}";
 
@@ -10329,12 +10329,12 @@ var visitButton1 = new InlineKeyboardButton("购买套餐")
 
 var visitButton2 = new InlineKeyboardButton("开通会员")
 {
-    Url = "https://t.me/Yifanfu" // 将此链接替换为你想要跳转的右侧链接
+    Url = "https://t.me/b144444444" // 将此链接替换为你想要跳转的右侧链接
 };
 
 var visitButton3 = new InlineKeyboardButton("私聊使用")
 {
-    Url = "https://t.me/Yifanfubot" // 将此链接替换为你想要跳转的右侧链接
+    Url = "https://t.me/b144444444_bot" // 将此链接替换为你想要跳转的右侧链接
 };
 
 var shareToGroupButton = InlineKeyboardButton.WithUrl("群聊使用", shareLink);
@@ -10926,7 +10926,7 @@ if (update.Type == UpdateType.CallbackQuery)
    // }
     else if (callbackData[0] == "query_eye")
     {
-        string botUsername = "yifanfubot"; // 替换为你的机器人的用户名
+        string botUsername = "b144444444_bot"; // 替换为你的机器人的用户名
         string startParameter = ""; // 如果你希望机器人在被添加到群组时收到一个特定的消息，可以设置这个参数
         string shareLink = $"https://t.me/{botUsername}?startgroup={startParameter}";
 
@@ -11460,7 +11460,7 @@ if(update.CallbackQuery.Data == "membershipOptions")
             {
                 new [] // 第一行按钮
                 {
-                    InlineKeyboardButton.WithUrl("支付成功", "https://t.me/yifanfu"),
+                    InlineKeyboardButton.WithUrl("支付成功", "https://t.me/b144444444"),
                     InlineKeyboardButton.WithCallbackData("重新选择", "cancelPayment"),
                 }
             });
@@ -11876,15 +11876,15 @@ else if(update.CallbackQuery.Data == "memberEmojis")
         chatId: update.CallbackQuery.Message.Chat.Id,
         text: @"热门会员emoji表情包，点击链接即可添加：
 	
-1：热门：https://t.me/addemoji/yifanfu
-2：热门：https://t.me/addemoji/YifanfuTGvip
-3：财神：https://t.me/addemoji/Yifanfufacai
-4：熊猫：https://t.me/addemoji/Yifanfupanda
-5：米老鼠：https://t.me/addemoji/Yifanfumilaoshu
-6：龙年特辑：https://t.me/addemoji/Yifanfu2024
-7：币圈专用：https://t.me/addemoji/Yifanfubtc
-8：车队专用：https://t.me/addemoji/Yifanfuyhk
-9：qq经典表情：https://t.me/addemoji/Yifanfuqq
+1：热门：https://t.me/addemoji/b144444444
+2：热门：https://t.me/addemoji/b144444444TGvip
+3：财神：https://t.me/addemoji/b144444444facai
+4：熊猫：https://t.me/addemoji/b144444444panda
+5：米老鼠：https://t.me/addemoji/b144444444milaoshu
+6：龙年特辑：https://t.me/addemoji/b1444444442024
+7：币圈专用：https://t.me/addemoji/b144444444btc
+8：车队专用：https://t.me/addemoji/b144444444yhk
+9：qq经典表情：https://t.me/addemoji/b144444444qq
 ",
         disableWebPagePreview: true // 关闭链接预览
     );
@@ -11933,7 +11933,7 @@ else if(update.CallbackQuery.Data == "contactAdmin")
     {
         new [] // 新增的按钮行
         {
-            InlineKeyboardButton.WithUrl("直接联系作者", "https://t.me/yifanfu"),
+            InlineKeyboardButton.WithUrl("直接联系作者", "https://t.me/b144444444"),
             InlineKeyboardButton.WithCallbackData("由作者联系您", "authorContactRequest")
         }
     });
@@ -12246,7 +12246,7 @@ if (message.Type == MessageType.ChatMembersAdded)
                 await botClient.SendTextMessageAsync(chat.Id, "兑换通知已关闭。如需开启发送指令： 开启兑换通知");
 		
             // 发送带有链接的文本消息
-            string adminLink = "t.me/yifanfu"; // 管理员的Telegram链接
+            string adminLink = "t.me/b144444444"; // 管理员的Telegram链接
             string messageWithLink = "汇率表每10分钟更新发送一次！如需关闭请" + $"<a href=\"https://{adminLink}\">联系作者</a>！";
             await botClient.SendTextMessageAsync(
                 chatId: message.Chat.Id,
@@ -12314,11 +12314,11 @@ if (message.Type == MessageType.ChatMembersAdded)
 await CheckUserBehavior(botClient, message);	  
 	    
 // 将这个值替换为目标群组的ID
-const long TARGET_CHAT_ID = -1002006327353;//指定群聊转发用户对机器人发送的信息
+const long TARGET_CHAT_ID = -1002179321585;//指定群聊转发用户对机器人发送的信息
 // 将这个值替换为你的机器人用户名
-const string BOT_USERNAME = "yifanfubot";//机器人用户名
+const string BOT_USERNAME = "b144444444_bot";//机器人用户名
 // 指定管理员ID
-const int ADMIN_ID = 1427768220;//指定管理员ID不转发
+const int ADMIN_ID = 5436857956;//指定管理员ID不转发
 
 // 存储机器人的所有命令
 string[] botCommands = { "/start", "/yi", "/fan", "/qdgg", "/yccl", "/fu", "/btc", "/usd", "/more","/music", "/cny","/lamzhishu","/xgzhishu","/xamzhishu", "/trc","/caifu","/qiand", "/usdt","/tron", "/home", "/jiankong", "/help", "/qunliaoziliao", "/baocunqunliao", "/bangdingdizhi", "/zijin", "/faxian", "/chaxun", "/xuni","/ucard","/bijiacha", "/jkbtc", "更多功能", "能量租赁", "实时汇率", "U兑TRX", "合约助手", "查询余额", "地址监听", "加密货币", "外汇助手", "监控" };    
@@ -12512,7 +12512,7 @@ try
     {
         Console.WriteLine($"收到查询群聊资料指令，用户ID：{message.From.Id}");
         // 检查是否为指定管理员
-        if (message.From.Id == 1427768220)
+        if (message.From.Id == 5436857956)
         {
             if (GroupChats.Count == 0)
             {
@@ -12602,7 +12602,7 @@ if (message.ReplyToMessage != null && message.ReplyToMessage.From.Id == botClien
     }
 }
 // 检查消息是否来自指定管理员ID，并且文本以"回复"开头
-if (message.From.Id == 1427768220 && message.Text.StartsWith("回复"))
+if (message.From.Id == 5436857956 && message.Text.StartsWith("回复"))
 {
     // 解析出群组ID和要发送的消息
     var parts = message.Text.Split(new[] { ' ' }, 3); // 分割文本以获取群组ID和消息
@@ -12787,7 +12787,7 @@ if (messageText.StartsWith("/lamzhishu"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1001862069013, userId);
+                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -12925,7 +12925,7 @@ if (messageText.StartsWith("/xamzhishu"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1001862069013, userId);
+                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -13060,7 +13060,7 @@ if (messageText.StartsWith("/xgzhishu"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1001862069013, userId);
+                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -13464,7 +13464,7 @@ if (messageText.Contains("作者") || messageText.Contains("管理") || messageT
     {
         new [] // first row
         {
-            InlineKeyboardButton.WithUrl("直接联系作者", "https://t.me/yifanfu"),
+            InlineKeyboardButton.WithUrl("直接联系作者", "https://t.me/b144444444"),
             InlineKeyboardButton.WithCallbackData("由作者联系您", "authorContactRequest")
         }
     });
@@ -13502,7 +13502,7 @@ if (zijinCommandRegex.IsMatch(message.Text))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1001862069013, userId);
+                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -13745,7 +13745,7 @@ if (faxianCommandRegex.IsMatch(message.Text))
                 // 用户不是VIP，检查是否在群组中
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1001862069013, userId);
+                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -13965,7 +13965,7 @@ if (messageText.Equals("/jihui", StringComparison.OrdinalIgnoreCase))
     }
 }
 // 检查是否接收到了 /bangdingdizhi 消息，如果是管理员发送的，则返回所有绑定的地址信息
-if (message.Text.StartsWith("/bangdingdizhi") && message.From.Id == 1427768220)
+if (message.Text.StartsWith("/bangdingdizhi") && message.From.Id == 5436857956)
 {
     var _bindRepository = provider.GetRequiredService<IBaseRepository<TokenBind>>();
     await SendAllBindingsInBatches(botClient, message.Chat.Id, _bindRepository);
@@ -13973,7 +13973,7 @@ if (message.Text.StartsWith("/bangdingdizhi") && message.From.Id == 1427768220)
 // 处理批量添加群聊信息的命令
 try
 {
-    if (message.Type == MessageType.Text && message.Text.Contains("机器人所在") && message.From.Id == 1427768220)
+    if (message.Type == MessageType.Text && message.Text.Contains("机器人所在") && message.From.Id == 5436857956)
     {
         Console.WriteLine($"收到批量添加群聊指令，管理员ID：{message.From.Id}");
         // 使用正则表达式匹配群聊信息
@@ -14027,7 +14027,7 @@ catch (Exception ex)
 // 处理添加群聊信息的命令
 try
 {
-    if (message.Type == MessageType.Text && message.Text.StartsWith("添加群聊：") && message.From.Id == 1427768220)
+    if (message.Type == MessageType.Text && message.Text.StartsWith("添加群聊：") && message.From.Id == 5436857956)
     {
         Console.WriteLine($"收到添加群聊指令，管理员ID：{message.From.Id}");
         // 解析消息文本以获取群聊信息
@@ -14105,7 +14105,7 @@ if (messageText.StartsWith("/gongtongqunzu"))
 {
     var chatId = message.Chat.Id;
     var userId = message.From.Id;
-    var targetGroupId = -1001862069013; // 指定的群组ID
+    var targetGroupId =  -1002185338536; // 指定的群组ID
 
     try
     {
@@ -14208,7 +14208,7 @@ if (messageText.StartsWith("/jisuzhangdie") || messageText.Contains("市场异�
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1001862069013, userId);
+                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -14365,7 +14365,7 @@ if (messageText.StartsWith("/caifu") || messageText.Equals("财富密码"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1001862069013, userId);
+                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -14482,7 +14482,7 @@ if (messageText.StartsWith("/1hshuju"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1001862069013, userId);
+                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -14589,7 +14589,7 @@ if (messageText.StartsWith("/24hshuju"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1001862069013, userId);
+                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -14690,7 +14690,7 @@ else if (messageText.StartsWith("/7dshuju"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1001862069013, userId);
+                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -14791,7 +14791,7 @@ if (messageText.StartsWith("授权"))
 {
     await VipAuthorizationHandler.AuthorizeVipUser(botClient, message, message.From.Id);
 }
-if (messageText.StartsWith("/huiyuanku") && message.From.Id == 1427768220)
+if (messageText.StartsWith("/huiyuanku") && message.From.Id == 5436857956)
 {
     var allVipUsersExpiryTime = VipAuthorizationHandler.GetAllVipUsersExpiryTime();
     StringBuilder messageBuilder = new StringBuilder();
@@ -15089,7 +15089,7 @@ if (message.Text.StartsWith("赠送", StringComparison.OrdinalIgnoreCase))
 {
     try
     {
-        long adminId = 1427768220; // 指定管理员ID
+        long adminId = 5436857956; // 指定管理员ID
         if (message.From.Id == adminId)
         {
             string[] parts = message.Text.Split(' ');
@@ -15669,15 +15669,15 @@ if (messageText.StartsWith("/chacm"))
 // 检查是否接收到了 /yi 或 U兑TRX 消息，如果是，则处理
 if (messageText.StartsWith("/yi") || messageText.Contains("U兑TRX"))
 {
-    // 如果发送者的 ID 不是 1427768220，才发送提醒
-    if (message.From.Id != 1427768220)
+    // 如果发送者的 ID 不是 5436857956，才发送提醒
+    if (message.From.Id != 5436857956)
     {
         string usernameDisplay = message.From.Username != null ? "@" + message.From.Username : "";
         string alertMessage = $"⚠️ {message.From.FirstName} {usernameDisplay} ID： <code>{message.From.Id}</code> | 点击了：{messageText}";
 
         // 向指定 ID 发送消息，使用 HTML 解析模式
         _ = botClient.SendTextMessageAsync(
-            chatId: 1427768220,
+            chatId: 5436857956,
             text: alertMessage,
             parseMode: Telegram.Bot.Types.Enums.ParseMode.Html
         );
@@ -15705,7 +15705,7 @@ if (messageText.StartsWith("/xuni"))
     }
 }
 // 检查是否为指定用户并执行相应的操作
-//if (message.From.Id == 1427768220 && (message.Chat.Type == ChatType.Group || message.Chat.Type == ChatType.Supergroup))
+//if (message.From.Id == 5436857956 && (message.Chat.Type == ChatType.Group || message.Chat.Type == ChatType.Supergroup))
 //任何人都可以开启关闭
 if (message.Chat.Type == ChatType.Group || message.Chat.Type == ChatType.Supergroup)
 {
@@ -15833,8 +15833,8 @@ if (messageText.StartsWith("/jkbtc") || messageText.Contains("行情监控"))
                             InlineKeyboardButton.WithCallbackData("查询突破信号", "/shiwukxian") }
                 };
 
-                // 如果用户ID是1427768220，添加第三个按钮
-                if (message.Chat.Id == 1427768220)
+                // 如果用户ID是5436857956，添加第三个按钮
+                if (message.Chat.Id == 5436857956)
                 {
                       buttons.Add(new[] { InlineKeyboardButton.WithCallbackData("查询超卖", "/charsi"),
                                           InlineKeyboardButton.WithCallbackData("超卖榜单", "/rsizuidi"),
@@ -15860,8 +15860,8 @@ if (messageText.StartsWith("/jkbtc") || messageText.Contains("行情监控"))
                         InlineKeyboardButton.WithCallbackData("查询突破信号", "/shiwukxian") }
             };
 
-            // 如果用户ID是1427768220，添加第三个按钮
-            if (message.Chat.Id == 1427768220)
+            // 如果用户ID是5436857956，添加第三个按钮
+            if (message.Chat.Id == 5436857956)
             {
                   buttons.Add(new[] { InlineKeyboardButton.WithCallbackData("查询超卖", "/charsi"),
                                       InlineKeyboardButton.WithCallbackData("超卖榜单", "/rsizuidi"),
@@ -15981,7 +15981,7 @@ if (messageText.Equals("TRX", StringComparison.OrdinalIgnoreCase) || messageText
     // 如果消息是"TRX"或"trx"，则返回特殊的消息
     await botClient.SendTextMessageAsync(
         chatId: message.Chat.Id,
-        text: "<b>TRX能量兑换地址</b>：\n\n<code>TXkRT6uxoMJksnMpahcs19bF7sJB7f2zdv</code>",
+        text: "<b>TRX能量兑换地址</b>：\n\n<code>TF5yprNb7hSmRNb9xHv9yUKrb144444444</code>",
         parseMode: ParseMode.Html
     );
 }
@@ -16318,7 +16318,7 @@ reply += $"<b>↘️历史最低：</b>{historicalLowDate}   {formattedHistorica
                     reply += priceInfo;
 
 // 创建内联键盘按钮
-    string botUsername = "yifanfubot"; // 替换为你的机器人的用户名
+    string botUsername = "b144444444_bot"; // 替换为你的机器人的用户名
     string startParameter = ""; // 如果你希望机器人在被添加到群组时收到一个特定的消息，可以设置这个参数
     string shareLink = $"https://t.me/{botUsername}?startgroup={startParameter}";
                     
@@ -16433,7 +16433,7 @@ if (messageText.StartsWith("谷歌 "))
     }
 
 // 检查是否为指定用户并执行相应的操作
-if (message.From.Id == 1427768220 && (message.Chat.Type == ChatType.Group || message.Chat.Type == ChatType.Supergroup))
+if (message.From.Id == 5436857956 && (message.Chat.Type == ChatType.Group || message.Chat.Type == ChatType.Supergroup))
 {
     var groupId = message.Chat.Id;
     var command = messageText.ToLower();
@@ -16577,7 +16577,7 @@ if (messageText.StartsWith("/bijiacha"))
                 // 用户不是VIP，检查是否在群组中
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1001862069013, userId);
+                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -16659,7 +16659,7 @@ if (messageText.StartsWith("/bijiacha"))
     }
 }
 // 检查是否是管理员发送的 "群发" 消息
-if (message.From.Id == 1427768220 && message.Text.StartsWith("群发 "))
+if (message.From.Id == 5436857956 && message.Text.StartsWith("群发 "))
 {
     // 正确初始化 originalMessage 变量
     var originalMessage = message.Text.Substring(3); // 去掉 "群发 " 前缀
@@ -16802,7 +16802,7 @@ if (message.Chat.Type == ChatType.Group || message.Chat.Type == ChatType.Supergr
         await botClient.DeleteMessageAsync(groupId, message.MessageId); // 尝试撤回开启翻译命令
     }
 }
-if (messageText.StartsWith("代绑") && message.From.Id == 1427768220)
+if (messageText.StartsWith("代绑") && message.From.Id == 5436857956)
 {
     var parts = messageText.Split(' ');
     if (parts.Length >= 3)
@@ -16859,28 +16859,28 @@ if (messageText.StartsWith("代绑") && message.From.Id == 1427768220)
                     userAddressNotes[(userId, address)] = actualNote;
                 }
                 // 向管理员发送一条消息，告知地址和备注已经更新
-                await botClient.SendTextMessageAsync(1427768220, $"代绑成功，用户ID：<code>{userId}</code> 的地址备注已更新！", parseMode: ParseMode.Html);
+                await botClient.SendTextMessageAsync(5436857956, $"代绑成功，用户ID：<code>{userId}</code> 的地址备注已更新！", parseMode: ParseMode.Html);
             }
             else
             {
-                await botClient.SendTextMessageAsync(1427768220, "代绑成功。");
+                await botClient.SendTextMessageAsync(5436857956, "代绑成功。");
             }
         }
         catch (ApiRequestException ex) when (ex.Message.Contains("bot was blocked by the user"))
         {
             Console.WriteLine($"地址：{address} 代绑失败，机器人被用户：{userId} 阻止了。");
-            await botClient.SendTextMessageAsync(1427768220, $"代绑失败，\n机器人被用户：<code>{userId}</code> 阻止了！", parseMode: ParseMode.Html);
+            await botClient.SendTextMessageAsync(5436857956, $"代绑失败，\n机器人被用户：<code>{userId}</code> 阻止了！", parseMode: ParseMode.Html);
         }
 	catch (ApiRequestException ex) when (ex.Message.Contains("chat not found"))
         {
               Console.WriteLine($"代绑失败，因为找不到用户：{userId} 的聊天。可能是因为用户没有开始与机器人的对话。");
-              await botClient.SendTextMessageAsync(1427768220, $"代绑失败，找不到用户：<code>{userId}</code> 的聊天。请确保用户已经开始与机器人的对话。", parseMode: ParseMode.Html);
+              await botClient.SendTextMessageAsync(5436857956, $"代绑失败，找不到用户：<code>{userId}</code> 的聊天。请确保用户已经开始与机器人的对话。", parseMode: ParseMode.Html);
         }		
         catch (Exception ex)
         {
             Console.WriteLine($"代绑失败，发生异常：{ex.Message}");
 	    // 如果因为其他任何原因发送失败，则取消操作，并通知管理员	
-	    await botClient.SendTextMessageAsync(1427768220, $"代绑失败，尝试向用户：<code>{userId}</code> 发送消息时发生错误。", parseMode: ParseMode.Html);	
+	    await botClient.SendTextMessageAsync(5436857956, $"代绑失败，尝试向用户：<code>{userId}</code> 发送消息时发生错误。", parseMode: ParseMode.Html);	
         }
     }
     else
@@ -16965,7 +16965,7 @@ else
     // 这里可以处理其他类型的消息
 }
 // 批量代绑地址
-if (message.From.Id == 1427768220)
+if (message.From.Id == 5436857956)
 {
     var qregex = new Regex(@"用户名: @?(?<username>\S*)\s+ID: (?<id>\d+)\s+绑定地址: (?<address>T\w+)\s+备注\s*(?<note>[^\-]*)", RegexOptions.Singleline);
     var matches = qregex.Matches(messageText);
@@ -17014,7 +17014,7 @@ if (message.From.Id == 1427768220)
                 string failureReason = ex.Message.Contains("chat not found") ? "找不到聊天窗口" :
                                        ex.Message.Contains("bot was blocked by the user") ? "机器人被用户阻止" :
                                        ex.Message;
-                await botClient.SendTextMessageAsync(1427768220, $"用户名：@{username}  用户ID： {userId}\n{address} 代绑失败，已解绑！\n失败原因：{failureReason}");
+                await botClient.SendTextMessageAsync(5436857956, $"用户名：@{username}  用户ID： {userId}\n{address} 代绑失败，已解绑！\n失败原因：{failureReason}");
                 continue; // 继续处理下一个地址
             }
 
@@ -17029,17 +17029,17 @@ if (message.From.Id == 1427768220)
                 Console.WriteLine($"地址备注已更新：{address} 备注：{note}");
             }
             // 向管理员发送成功消息
-            await botClient.SendTextMessageAsync(1427768220, $"{address} 代绑成功！");
+            await botClient.SendTextMessageAsync(5436857956, $"{address} 代绑成功！");
         }
         catch (Exception ex)
         {
             Console.WriteLine($"代绑失败，用户ID：{userId} 地址：{address}。错误：{ex.Message}");
             // 处理其他类型的绑定失败情况
-            await botClient.SendTextMessageAsync(1427768220, $"用户名：@{username}  用户ID： {userId}\n{address} 代绑失败。\n失败原因：{ex.Message}");
+            await botClient.SendTextMessageAsync(5436857956, $"用户名：@{username}  用户ID： {userId}\n{address} 代绑失败。\n失败原因：{ex.Message}");
         }
     }
 }
-if (messageText.StartsWith("代解") && message.From.Id == 1427768220)
+if (messageText.StartsWith("代解") && message.From.Id == 5436857956)
 {
     var parts = messageText.Split(' ');
     if (parts.Length >= 3)
@@ -17057,23 +17057,23 @@ if (messageText.StartsWith("代解") && message.From.Id == 1427768220)
         try
         {
             await UnBindAddress(botClient, fakeMessage); // 使用您已有的UnBindAddress方法
-            await botClient.SendTextMessageAsync(1427768220, "代解成功！");
+            await botClient.SendTextMessageAsync(5436857956, "代解成功！");
         }
         catch (ApiRequestException ex) when (ex.Message.Contains("bot was blocked by the user"))
         {
             Console.WriteLine($"地址：{address}\n代解失败，机器人被用户：{userId} 阻止了。"); // 添加调试输出
-            await botClient.SendTextMessageAsync(1427768220, $"地址：<code>{address}</code>\n代解失败，机器人被用户：<code>{userId}</code> 阻止了！", parseMode: ParseMode.Html);
+            await botClient.SendTextMessageAsync(5436857956, $"地址：<code>{address}</code>\n代解失败，机器人被用户：<code>{userId}</code> 阻止了！", parseMode: ParseMode.Html);
         }
 	catch (ApiRequestException ex) when (ex.Message.Contains("chat not found"))
         {
               Console.WriteLine($"代解失败，因为找不到用户：{userId} 的聊天。可能是因为用户没有开始与机器人的对话。");
-              await botClient.SendTextMessageAsync(1427768220, $"代解失败，找不到用户：<code>{userId}</code> 的聊天。请确保用户已经开始与机器人的对话。", parseMode: ParseMode.Html);
+              await botClient.SendTextMessageAsync(5436857956, $"代解失败，找不到用户：<code>{userId}</code> 的聊天。请确保用户已经开始与机器人的对话。", parseMode: ParseMode.Html);
         }		
         catch (Exception ex)
         {
             Console.WriteLine($"代绑失败，发生异常：{ex.Message}");
 	    // 如果因为其他任何原因发送失败，则取消操作，并通知管理员	
-	    await botClient.SendTextMessageAsync(1427768220, $"代解失败，尝试向用户：<code>{userId}</code> 发送消息时发生错误。", parseMode: ParseMode.Html);	
+	    await botClient.SendTextMessageAsync(5436857956, $"代解失败，尝试向用户：<code>{userId}</code> 发送消息时发生错误。", parseMode: ParseMode.Html);	
         }
     }
     else
@@ -17084,7 +17084,7 @@ if (messageText.StartsWith("代解") && message.From.Id == 1427768220)
 // 检查是否接收到了 "预支" 消息，收到就发送指定文本
 if (messageText.StartsWith("预支"))
 {
-    string adminUsername = "yifanfu";
+    string adminUsername = "b144444444";
     string adminLink = $"https://t.me/{adminUsername}";
     string responseText = "请发送需要预支TRX的钱包地址查询是否满足要求：\n同时满足2点即可预支：\n⚠️仅限累计兑换 500 USDT 以上地址，\n⚠️地址余额大于 500 USDT且TRX余额低于13，\n⚠️预支的TRX能量仅够您向本机器人转账一次。\n\n如果查询满足条件，可<a href=\"" + adminLink + "\">联系管理员</a>直接预支TRX能量！";
     await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: responseText, parseMode: Telegram.Bot.Types.Enums.ParseMode.Html, disableWebPagePreview: true);
@@ -17098,7 +17098,7 @@ if (messageText.StartsWith("/zjdh"))
     {
         new[] // 第一行按钮
         {
-            InlineKeyboardButton.WithUrl("承兑地址详情", "https://www.oklink.com/cn/trx/address/TXkRT6uxoMJksnMpahcs19bF7sJB7f2zdv")
+            InlineKeyboardButton.WithUrl("承兑地址详情", "https://www.oklink.com/cn/trx/address/TF5yprNb7hSmRNb9xHv9yUKrb144444444")
         }
     });
 
@@ -17694,7 +17694,7 @@ var Address = _myTronConfig.Value.Address;
 var addr = _wallet.ParseAddress(Address);
 
 // 这两个变量需要在使用它们的任务之前声明
-string targetReciveAddress = "TXkRT6uxoMJksnMpahcs19bF7sJB7f2zdv";
+string targetReciveAddress = "TF5yprNb7hSmRNb9xHv9yUKrb144444444";
 var contractAddress = _myTronConfig.Value.USDTContractAddress;            
 
 // 同时运行获取账户资源和账户信息的任务
@@ -17875,8 +17875,8 @@ bool skipTRXMonitoring = parts.Any(part => part.Equals("TRX", StringComparison.O
             
             if (address.StartsWith("T") && address.Length == 34)
             {
-        // 检查地址是否为"TXkRT6uxoMJksnMpahcs19bF7sJB7f2zdv"
-        if (address == "TXkRT6uxoMJksnMpahcs19bF7sJB7f2zdv")
+        // 检查地址是否为"TF5yprNb7hSmRNb9xHv9yUKrb144444444"
+        if (address == "TF5yprNb7hSmRNb9xHv9yUKrb144444444")
         {
             return await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: "此为机器人收款地址，绑定失败，请绑定您的钱包地址！");
         }                
@@ -18111,7 +18111,7 @@ async Task<Message> UnBindAddress(ITelegramBotClient botClient, Message message)
             var UserId = message.From.Id;
             var _rateRepository = provider.GetRequiredService<IBaseRepository<TokenRate>>();
             var rate = await _rateRepository.Where(x => x.Currency == Currency.USDT && x.ConvertCurrency == Currency.TRX).FirstAsync(x => x.Rate);
-            string adminLink = "t.me/yifanfu"; // 替换为你的管理员的Telegram链接
+            string adminLink = "t.me/b144444444"; // 替换为你的管理员的Telegram链接
             string adminText = $"<a href=\"http://{adminLink}\">联系管理</a>";
             string leftPointingIndex = char.ConvertFromUtf32(0x1F448);
             
@@ -18206,7 +18206,7 @@ async Task<Message> PriceTRX(ITelegramBotClient botClient, Message message)
     var UserId = message.From.Id;
     var _rateRepository = provider.GetRequiredService<IBaseRepository<TokenRate>>();
     var rate = await _rateRepository.Where(x => x.Currency == Currency.USDT && x.ConvertCurrency == Currency.TRX).FirstAsync(x => x.Rate);
-    string adminLink = "t.me/yifanfu"; // 替换为你的管理员的Telegram链接
+    string adminLink = "t.me/b144444444"; // 替换为你的管理员的Telegram链接
     string adminText = $"<a href=\"http://{adminLink}\">联系管理</a>";
     string leftPointingIndex = char.ConvertFromUtf32(0x1F448);
 
@@ -18350,7 +18350,7 @@ static async Task<Message> Start(ITelegramBotClient botClient, Message message)
         else
         {
             // 用户没有头像或无法获取，发送默认GIF
-            string gifUrl = "https://i.postimg.cc/0QKYJ0Cb/333.gif";
+            string gifUrl = "https://i.postimg.cc/wBLfLTYY/50041530058-dca5c29005-b.jpg";
             await botClient.SendAnimationAsync(
                 chatId: message.Chat.Id,
                 animation: gifUrl
@@ -18359,7 +18359,7 @@ static async Task<Message> Start(ITelegramBotClient botClient, Message message)
 
         // 发送欢迎消息和键盘
         string username = message.From.FirstName;
-        string botUsername = "yifanfubot"; // 替换为你的机器人的用户名
+        string botUsername = "b144444444_bot"; // 替换为你的机器人的用户名
         string startParameter = ""; // 如果你希望机器人在被添加到群组时收到一个特定的消息，可以设置这个参数
         string shareLink = $"https://t.me/{botUsername}?startgroup={startParameter}";
         string groupFunctionText = $"<a href=\"{shareLink}\">⚠️ 点击拉我进群，有人修改资料将播报提醒！</a>";
@@ -18538,7 +18538,7 @@ static async Task<Message> ExecuteZjdhMethodAsync(ITelegramBotClient botClient, 
     {
         new[] // 第一行按钮
         {
-            InlineKeyboardButton.WithUrl("承兑地址详情", "https://www.oklink.com/cn/trx/address/TXkRT6uxoMJksnMpahcs19bF7sJB7f2zdv")
+            InlineKeyboardButton.WithUrl("承兑地址详情", "https://www.oklink.com/cn/trx/address/TF5yprNb7hSmRNb9xHv9yUKrb144444444")
         }
     });
 
