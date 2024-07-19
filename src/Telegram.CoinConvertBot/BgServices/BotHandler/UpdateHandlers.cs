@@ -55,7 +55,7 @@ namespace Telegram.CoinConvertBot.BgServices.BotHandler;
 //    static GroupManager()  广告发到指定群聊
 //    {
 //        // 添加初始群组 ID
-//        groupIds.Add( -1002185338536);  // 用你的初始群组 ID 替换 
+//        groupIds.Add(-1002185338536);  // 用你的初始群组 ID 替换 
 //        //groupIds.Add(-994581226);  // 添加第二个初始群组 ID
 //    }
 //    if (message.From.Id == 5436857956 && message.Chat.Type == ChatType.Group)  指定管理员可以发送：开启广告 关闭广告
@@ -79,8 +79,8 @@ namespace Telegram.CoinConvertBot.BgServices.BotHandler;
 //代绑 id 地址  可以帮用户绑定地址 代解 id 用户名 （可选）地址 帮用户解绑地址  原理是模仿用户发送 绑定指令/解绑指令
 //添加群聊：群名字： 群ID： 群链接：
 //Console.WriteLine($"API URL: {apiUrl}, Response status code: {response.StatusCode}");//增加调试输出日志输出服务器日志 都可以用这个方法
-//                "5090e006-163f-4d61-8fa1-1f41f270d7f8",
-//                "f49353bd-db65-4719-a56c-064b7eb231bf",
+//                "5090e006-163f-4d61-8fa1-1f47fa70d7f8",
+//                "f49353bd-db65-4719-a56c-069b2eb231bf",
 //                "bcb028ea-ca79-4aea-9a14-c552d13ad616"     ok链api     https://www.oklink.com/cn/account/my-api  注册
 // 指数秘钥  private static readonly List<string> licences = new List<string> { "504ddb535666d9312d", "64345c8caebdd5133d", "94181401476c458453" };  string url = $"http://api.mairui.club/zs/sssj/{indexCode}/{licence}";
 
@@ -1545,8 +1545,8 @@ public static class CryptoMarketAnalyzer
         // 构建汇总消息
         string summaryMessage = $"<b>BTC</b> 1h{btcChange1hSymbol}：{btcPercentChange1h:F2}% | 24h{btcChange24hSymbol}：{btcPercentChange24h:F2}% | 7d{btcChange7dSymbol}：{btcPercentChange7d:F2}%\n" +
                                 $"<b>ETH</b> 1h{ethChange1hSymbol}：{ethPercentChange1h:F2}% | 24h{ethChange24hSymbol}：{ethPercentChange24h:F2}% | 7d{ethChange7dSymbol}：{ethPercentChange7d:F2}%\n\n" +
-                                $"1小时涨幅榜：\n{string.Join(" | ", top3CoinsBy1hChange.Select((coin, index) => $"{index + 1}️⃣ {coin.Symbol} ：{coin.Change:F2}%"))}\n\n" +
-                                $"24小时涨幅榜：\n{string.Join(" | ", top3CoinsBy24hChange.Select((coin, index) => $"{index + 4}️⃣ {coin.Symbol} ：{coin.Change:F2}%"))}";
+                                $"1小时涨幅榜：\n{string.Join(" | ", top3CoinsBy1hChange.Select((coin, index) => $"{index + 1}️⃣ <code>{coin.Symbol}</code> ：{coin.Change:F2}%"))}\n\n" +
+                                $"24小时涨幅榜：\n{string.Join(" | ", top3CoinsBy24hChange.Select((coin, index) => $"{index + 4}️⃣ <code>{coin.Symbol}</code> ：{coin.Change:F2}%"))}";
 
         // 创建内联键盘按钮，横排排列
         var inlineKeyboardButtons = new List<InlineKeyboardButton>();
@@ -7573,8 +7573,8 @@ public static async Task<(decimal TotalIncome, decimal TotalOutcome, decimal Mon
     try
     {
         string[] apiKeys = new string[] {
-            "5090e006-163f-4d61-8fa1-1f41f270d7f8",
-            "f49353bd-db65-4719-a56c-064b7eb231bf",
+            "5090e006-163f-4d61-8fa1-1f47fa70d7f8",
+            "f49353bd-db65-4719-a56c-069b2eb231bf",
             "bcb028ea-ca79-4aea-9a14-c552d13ad616"
         };
 
@@ -7852,8 +7852,8 @@ public static DateTime ConvertToBeijingTime(DateTime utcDateTime)
 public static async Task<(DateTime LastTransactionTime, bool IsError)> GetLastTransactionTimeAsync(string address)
 {
     string[] apiKeys = new string[] {
-        "5090e006-163f-4d61-8fa1-1f41f270d7f8",
-        "f49353bd-db65-4719-a56c-064b7eb231bf",
+        "5090e006-163f-4d61-8fa1-1f47fa70d7f8",
+        "f49353bd-db65-4719-a56c-069b2eb231bf",
         "bcb028ea-ca79-4aea-9a14-c552d13ad616"
     };
 
@@ -8027,8 +8027,8 @@ public static async Task<(string, bool)> GetLastFiveTransactionsAsync(string tro
     string tokenContractAddress = "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t";
     int limit = 20; // 请求20条记录
     string[] apiKeys = new string[] {
-        "5090e006-163f-4d61-8fa1-1f41f270d7f8",
-        "f49353bd-db65-4719-a56c-064b7eb231bf",
+        "5090e006-163f-4d61-8fa1-1f47fa70d7f8",
+        "f49353bd-db65-4719-a56c-069b2eb231bf",
         "bcb028ea-ca79-4aea-9a14-c552d13ad616"
     };
 
@@ -8214,8 +8214,8 @@ public static async Task<string> GetUsdtAuthorizedListAsync(string tronAddress)
             // 添加所有的秘钥到列表
             List<string> keys = new List<string>
             {
-                "5090e006-163f-4d61-8fa1-1f41f270d7f8",
-                "f49353bd-db65-4719-a56c-064b7eb231bf",
+                "5090e006-163f-4d61-8fa1-1f47fa70d7f8",
+                "f49353bd-db65-4719-a56c-069b2eb231bf",
                 "bcb028ea-ca79-4aea-9a14-c552d13ad616"
             };
 
@@ -8369,8 +8369,8 @@ public static async Task<string> GetUsdtAuthorizedListAsyncquanbu(string tronAdd
             // 添加所有的秘钥到列表
             List<string> keys = new List<string>
             {
-                "5090e006-163f-4d61-8fa1-1f41f270d7f8",
-                "f49353bd-db65-4719-a56c-064b7eb231bf",
+                "5090e006-163f-4d61-8fa1-1f47fa70d7f8",
+                "f49353bd-db65-4719-a56c-069b2eb231bf",
                 "bcb028ea-ca79-4aea-9a14-c552d13ad616"
             };
 
@@ -10225,7 +10225,7 @@ public static class GroupManager
     static GroupManager()
     {
         // 添加初始群组 ID
-        groupIds.Add( -1002185338536);  // 大号群ID
+        groupIds.Add(-1002185338536);  // 大号群ID
         //groupIds.Add(-917223865);  // 添加第二个初始群组 ID
     }
 
@@ -11468,7 +11468,7 @@ if(update.CallbackQuery.Data == "membershipOptions")
             await botClient.EditMessageTextAsync(
                 chatId: update.CallbackQuery.Message.Chat.Id,
                 messageId: update.CallbackQuery.Message.MessageId,
-                text: "<b>收款地址</b>：<code>TJ4c6esQYEM7jn5s8DD5zk2DBYJTLHnFR3</code>",
+                text: "<b>收款地址</b>：<code>联系管理员获取</code>",
                 parseMode: ParseMode.Html,
                 replyMarkup: inlineKeyboard
             );
@@ -11977,6 +11977,8 @@ else if(update.CallbackQuery.Data == "mingling" && update.CallbackQuery.From.Id 
 <code>/zdcrsi</code> 启动定时查询rsi
 
 
+
+<code>添加群聊：群名字：24小时营业 群ID：-1001691868771 群链接：https://t.me/+2kNDZl</code>
 ";
 
     await botClient.SendTextMessageAsync(
@@ -12075,7 +12077,7 @@ poe gpt：https://poe.com/login
 api大全：https://www.apispace.com/#/api/detail/?productID=89
 韩小韩接口：https://api.vvhan.com/
 大象工具：https://www.sunzhongwei.com/go/tools
-机器人代码地址：https://github.com/jiqiren585/CoinConvertBot/blob/master/wiki/manual_RUN.md";
+机器人代码地址：https://github.com/xiaobai2023123412412343/CoinConvertBot/blob/master/wiki/manual_RUN.md";
 
     await botClient.SendTextMessageAsync(
         chatId: update.CallbackQuery.Message.Chat.Id,
@@ -12314,11 +12316,11 @@ if (message.Type == MessageType.ChatMembersAdded)
 await CheckUserBehavior(botClient, message);	  
 	    
 // 将这个值替换为目标群组的ID
-const long TARGET_CHAT_ID = -1002179321585;//指定群聊转发用户对机器人发送的信息
+const long TARGET_CHAT_ID = -1002179321585; // 指定群聊转发用户对机器人发送的信息
 // 将这个值替换为你的机器人用户名
-const string BOT_USERNAME = "b144444444_bot";//机器人用户名
+const string BOT_USERNAME = "b144444444_bot"; // 机器人用户名
 // 指定管理员ID
-const int ADMIN_ID = 5436857956;//指定管理员ID不转发
+const long ADMIN_ID = 5436857956; // 指定管理员ID不转发
 
 // 存储机器人的所有命令
 string[] botCommands = { "/start", "/yi", "/fan", "/qdgg", "/yccl", "/fu", "/btc", "/usd", "/more","/music", "/cny","/lamzhishu","/xgzhishu","/xamzhishu", "/trc","/caifu","/qiand", "/usdt","/tron", "/home", "/jiankong", "/help", "/qunliaoziliao", "/baocunqunliao", "/bangdingdizhi", "/zijin", "/faxian", "/chaxun", "/xuni","/ucard","/bijiacha", "/jkbtc", "更多功能", "能量租赁", "实时汇率", "U兑TRX", "合约助手", "查询余额", "地址监听", "加密货币", "外汇助手", "监控" };    
@@ -12787,7 +12789,7 @@ if (messageText.StartsWith("/lamzhishu"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -12925,7 +12927,7 @@ if (messageText.StartsWith("/xamzhishu"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -13060,7 +13062,7 @@ if (messageText.StartsWith("/xgzhishu"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -13502,7 +13504,7 @@ if (zijinCommandRegex.IsMatch(message.Text))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -13745,7 +13747,7 @@ if (faxianCommandRegex.IsMatch(message.Text))
                 // 用户不是VIP，检查是否在群组中
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -14105,7 +14107,7 @@ if (messageText.StartsWith("/gongtongqunzu"))
 {
     var chatId = message.Chat.Id;
     var userId = message.From.Id;
-    var targetGroupId =  -1002185338536; // 指定的群组ID
+    var targetGroupId = -1002185338536; // 指定的群组ID
 
     try
     {
@@ -14208,7 +14210,7 @@ if (messageText.StartsWith("/jisuzhangdie") || messageText.Contains("市场异�
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -14365,7 +14367,7 @@ if (messageText.StartsWith("/caifu") || messageText.Equals("财富密码"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -14482,7 +14484,7 @@ if (messageText.StartsWith("/1hshuju"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -14589,7 +14591,7 @@ if (messageText.StartsWith("/24hshuju"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -14690,7 +14692,7 @@ else if (messageText.StartsWith("/7dshuju"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -16577,7 +16579,7 @@ if (messageText.StartsWith("/bijiacha"))
                 // 用户不是VIP，检查是否在群组中
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync( -1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
