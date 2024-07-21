@@ -102,7 +102,8 @@ static void ConfigureServices(HostBuilderContext Context, IServiceCollection Ser
     {
         botClient.SetMyCommandsAsync(new BotCommand[]
         {
-        new BotCommand(){Command="start",Description="开始使用"},          
+        new BotCommand(){Command="start",Description="开始使用"},  
+        new BotCommand(){Command="qiand",Description="一键签到"},        
         }).GetAwaiter().GetResult();
     }
     Log.Logger.Information("Telegram机器人上线！机器人ID：{Id}({username})，机器人名字：{FirstName}.", me.Id, $"@{me.Username}", me.FirstName);
