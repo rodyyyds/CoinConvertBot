@@ -15129,7 +15129,7 @@ if (message.Text.StartsWith("赠送", StringComparison.OrdinalIgnoreCase))
     }
 }
 // 检查是否接收到了 "/jifensc" 命令
-if (message.Text.Equals("\U0001F381兑换礼品", StringComparison.OrdinalIgnoreCase) || message.Text.Equals("/jifen", StringComparison.OrdinalIgnoreCase))
+if (message.Text.Equals("\U0001F381兑换礼品", StringComparison.OrdinalIgnoreCase) || message.Text.Equals("/jifen", StringComparison.OrdinalIgnoreCase)|| message.Text.Equals("/jifen@b144444444_bot", StringComparison.OrdinalIgnoreCase))
 {
     try
     {
