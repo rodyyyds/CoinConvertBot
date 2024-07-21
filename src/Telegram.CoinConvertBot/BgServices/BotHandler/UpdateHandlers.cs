@@ -1756,7 +1756,7 @@ public static async Task QueryCoinInfoAsync(ITelegramBotClient botClient, long c
         {
             var trxKeyboard = new InlineKeyboardMarkup(new[]
             {
-                InlineKeyboardButton.WithUrl("点击进群", "https://t.me/+b4NunT6Vwf0wZWI1")
+                InlineKeyboardButton.WithUrl("点击进群", "https://t.me/Trx_Robo")
             });
 
             await botClient.SendTextMessageAsync(chatId, "TRX数据请进群查看！", ParseMode.Html, replyMarkup: trxKeyboard);
@@ -4047,7 +4047,7 @@ public static async Task Monitor(ITelegramBotClient botClient, long userId, stri
     {
         var inlineKeyboard = new InlineKeyboardMarkup(new[]
         {
-            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/+b4NunT6Vwf0wZWI1")
+            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/Trx_Robo")
         });
         await botClient.SendTextMessageAsync(
             chatId: userId,
@@ -4411,7 +4411,7 @@ static async Task SendVirtualAdvertisement(ITelegramBotClient botClient, Cancell
     }            
             try
             {
-                await botClient.SendTextMessageAsync(groupId, advertisementText, parseMode: ParseMode.Html, replyMarkup: inlineKeyboard);
+                await botClient.SendTextMessageAsync(groupId, advertisementText, parseMode: ParseMode.Html);
             }
             catch
             {
@@ -5442,7 +5442,7 @@ private static async Task HandleCryptoCurrencyMessageAsync(ITelegramBotClient bo
         CallbackData = $"full_rates,{cryptoPriceInCny},{amount},{currencySymbol},{cryptoPriceInCny}"
     };
 
-    var inlineKeyboardButton2 = InlineKeyboardButton.WithUrl("穿越牛熊，慢，就是快！", "https://t.me/+b4NunT6Vwf0wZWI1");
+    var inlineKeyboardButton2 = InlineKeyboardButton.WithUrl("穿越牛熊，慢，就是快！", "https://t.me/Trx_Robo");
 
     var inlineKeyboard = new InlineKeyboardMarkup(new[]
     {
@@ -7294,7 +7294,7 @@ catch (HttpRequestException ex) when (ex.Message.Contains("403"))
     Console.WriteLine("服务器拒绝访问：403 Forbidden");
     await botClient.SendTextMessageAsync(message.Chat.Id, "查询超时，请进交易群查看！", replyMarkup: new InlineKeyboardMarkup(new[]
     {
-        InlineKeyboardButton.WithUrl("点击加入交易群", "https://t.me/+b4NunT6Vwf0wZWI1")
+        InlineKeyboardButton.WithUrl("点击加入交易群", "https://t.me/Trx_Robo")
     }));
     return "服务器超时，请进交易群查看！";
 }    
@@ -9836,24 +9836,24 @@ for (int i = startIndex; i < endIndex; i++)
     {
         new [] // 第一行
         {
-            new KeyboardButton("U兑TRX"),
-            new KeyboardButton("实时汇率"),
-            new KeyboardButton("查询余额"),
-            new KeyboardButton("能量租赁"),
+            new KeyboardButton(" \U0001F525U兑TRX"),
+            new KeyboardButton("\U0001F469\U0000200D\U0001F4BB预支能量"),
+            new KeyboardButton("\U0001F4B9汇率查询"),
+            new KeyboardButton("⚠️双向联系"),
         },   
         new [] // 第二行
         {
-            new KeyboardButton("外汇助手"),
-            new KeyboardButton("加密货币"),
-            new KeyboardButton("行情监控"),
-            new KeyboardButton("地址监听"),
+            new KeyboardButton("\U0001F4F1一键签到"),
+            new KeyboardButton("\U0001F381兑换礼品"),
+            new KeyboardButton("⚠️灰产新闻"),
+            new KeyboardButton("\U0001F51E午夜激情"),
         },   
         new [] // 第三行
         {
-            new KeyboardButton("财富密码"),
-            new KeyboardButton("龙虎榜单"),
-            new KeyboardButton("市场异动"),
-            new KeyboardButton("更多功能"),
+            new KeyboardButton("\U0001F465官方大群"),
+            new KeyboardButton("\U00002705香港开奖"),
+            new KeyboardButton(" \U0001F514新澳开奖"),
+            new KeyboardButton("\U0001F4E1老澳开奖"),
         }
     });		
 
@@ -10102,7 +10102,7 @@ string shareLink = $"https://t.me/{botUsername}?startgroup={startParameter}";
 // 创建 InlineKeyboardButton 并设置文本和回调数据
 var visitButton1 = new InlineKeyboardButton("\U0000267B 进交流群")
 {
-    Url = "https://t.me/+b4NunT6Vwf0wZWI1" // 将此链接替换为你想要跳转的左侧链接
+    Url = "https://t.me/Trx_Robo" // 将此链接替换为你想要跳转的左侧链接
 };
 
 var shareToGroupButton = InlineKeyboardButton.WithUrl("\U0001F449 分享到群组 \U0001F448", shareLink);
@@ -10298,23 +10298,18 @@ string fearGreedDescription = GetFearGreedDescription(today);
         decimal okxPrice = await GetOkxPriceAsync("USDT", "CNY", "all");
         
         string channelLink = "tg://resolve?domain=b144444444"; // 使用 'tg://' 协议替换为你的频道链接
-        string advertisementText = $"\U0001F4B9实时汇率：<b>100 USDT = {usdtToTrx:#.####} TRX</b>\n\n" +
-            " (<b>👩‍💻24小时自助ATM兑换机</b>):<code>TF5yprNb7hSmRNb9xHv9yUKrb144444444</code>\n\n" + //手动输入地址
-            "\U00002705 转U自动原地址返TRX,5U起兑!\n" +
-            "\U00002705 请勿使用交易所或中心化钱包转账!\n" +
-            $"\U00002705 <u>购买能量套餐，单笔转账低至 7TRX！</u>\n" +
-            $"\U00002705 有任何问题,请私聊联系<a href=\"{channelLink}\">机器人管理员</a>\n\n" +
-            "<b>另代开TG高级会员</b>:\n\n" +
-            "\u2708三月高级会员：24.99 u\n" +
-            "\u2708六月高级会员：39.99 u\n" +
-            "\u2708一年高级会员：70.99 u\n" +
-            "(<b>需要开通会员请联系管理,切记不要转TRX兑换地址!!!</b>)\n" +  
-            $"————————<b>其它汇率</b>————————\n" +
-            $"<b>\U0001F4B0 美元汇率参考 ≈ {usdRate:#.####} </b>\n" +
-            $"<b>\U0001F4B0 USDT实时OTC价格 ≈ {okxPrice} CNY</b>\n" +            
-            $"<b>\U0001F4B0 比特币价格 ≈ {bitcoinPrice} USDT     {(bitcoinChange >= 0 ? "+" : "")}{bitcoinChange:0.##}% </b>\n" +
-            $"<b>\U0001F4B0 以太坊价格 ≈ {ethereumPrice} USDT  {(ethereumChange >= 0 ? "+" : "")}{ethereumChange:0.##}% </b>\n" +
-            $"<b>\U0001F4B0 币圈今日恐惧与贪婪指数：{today}  {fearGreedDescription}</b>\n" ;
+string advertisementText = $"\U0001F4B9<b>实时汇率 100 U = {usdtToTrx:#.####} TRX</b>\n\n" +
+    "\U0001F525<b>24小时自助ATM兑换机</b>\n\n" +
+    "\U0001F53B往地址转U，10秒内自动回转TRX\n\n" +
+    "<code>TF5yprNb7hSmRNb9xHv9yUKrb144444444</code>\n\n" +
+    "\U0001F53A点地址自动复制,认准尾数<b>8个4</b>\n\n" +
+    "\U00002705转U即返TRX，全自动兑换TRX\n" +
+    "\U00002705 5U起换，仅支持<b>TRC20-USDT</b>\n\n" +
+    "\U00002705默认回TRX到付款原地址❗️ \n" +
+    "\U00002705回其他地址需提前联系客服❗️ \n" +
+    "\U0001F469‍\U0001F4BB @b144444444_bot   自助兑换ATM\n\n" +
+    "\U0001F9E7本店开张两周年，感谢客户常关照\n" +
+    "\U0001F9E7薄利多销只为用户提供便捷兑换服务\n";
             
             
 string botUsername = "b144444444_bot"; // 替换为你的机器人的用户名
@@ -10322,28 +10317,26 @@ string startParameter = ""; // 如果你希望机器人在被添加到群组时�
 string shareLink = $"https://t.me/{botUsername}?startgroup={startParameter}";
 
 // 创建 InlineKeyboardButton 并设置文本和回调数据
-var visitButton1 = new InlineKeyboardButton("购买套餐")
+var visitButton1 = new InlineKeyboardButton("\U0001F525 U自助兑换TRX")
 {
-    CallbackData = "能量" // 当按钮被点击时发送的数据
+    CallbackData = "\U0001F525U兑TRX" // 当按钮被点击时发送的数据
 };
 
-var visitButton2 = new InlineKeyboardButton("开通会员")
+var visitButton2 = new InlineKeyboardButton("\U0001F310 设置飞机中文")
+{
+    Url = "tg://setlanguage?lang=classic-zh-cn" // 当按钮被点击时发送的链接
+};
+
+var visitButton3 = new InlineKeyboardButton("\U0001F469‍\U0001F4BB 在线客服")
 {
     Url = "https://t.me/b144444444" // 将此链接替换为你想要跳转的右侧链接
 };
 
-var visitButton3 = new InlineKeyboardButton("私聊使用")
-{
-    Url = "https://t.me/b144444444_bot" // 将此链接替换为你想要跳转的右侧链接
-};
-
-var shareToGroupButton = InlineKeyboardButton.WithUrl("群聊使用", shareLink);
-
-// 创建 InlineKeyboardMarkup 并添加按钮
+// 更新 InlineKeyboardMarkup 并添加按钮
 var inlineKeyboard = new InlineKeyboardMarkup(new[]
 {
     new[] { visitButton1, visitButton2 }, // 第一行按钮
-    new[] { visitButton3, shareToGroupButton } // 第二行按钮
+    new[] { visitButton3 } // 第二行按钮
 });
 
         try
@@ -10995,7 +10988,7 @@ if (update.Type == UpdateType.CallbackQuery)
         }
 
         // 创建一个新的内联按钮
-        var inlineKeyboardButton = InlineKeyboardButton.WithUrl("穿越牛熊，慢，就是快！", "https://t.me/+b4NunT6Vwf0wZWI1");
+        var inlineKeyboardButton = InlineKeyboardButton.WithUrl("穿越牛熊，慢，就是快！", "https://t.me/Trx_Robo");
         var inlineKeyboard = new InlineKeyboardMarkup(new[] { inlineKeyboardButton });
 
         // 替换旧的消息，并添加新的内联按钮
@@ -11326,9 +11319,13 @@ if (containsUsername)
 // 检查输入文本是否为数字（包括小数）加~或～的组合，例如 "55~23"、"55～23" 或 "0.12~0.15"
 var isNumberRange = Regex.IsMatch(inputText, @"^\d+(\.\d+)?[~～]\d+(\.\d+)?$");
 // 检查输入文本是否为以#开头的加密货币标识，例如 "#btc"
+
+// 检查输入文本是否匹配特定的指令
+var isSpecialCommand = Regex.IsMatch(inputText, @"U兑TRX|预支能量|汇率查询|双向联系|一键签到|兑换礼品|灰产新闻|午夜激情|官方大群|香港开奖|新澳开奖|老澳开奖");
+
 var isCryptoSymbol = Regex.IsMatch(inputText, @"^(#|查\s*)[a-zA-Z0-9]+$");
 // 如果输入文本符合数字（包括小数）加~或～的组合，或者是以#开头的加密货币标识，则不执行翻译
-if (isNumberRange || isCryptoSymbol)
+if (isNumberRange || isCryptoSymbol || isSpecialCommand)
 {
     return;
 }
@@ -12443,13 +12440,21 @@ if (chatType == ChatType.Private || (chatType != ChatType.Private && containsCom
         }
         catch (Telegram.Bot.Exceptions.ApiRequestException ex)
         {
-            // 这里处理Telegram API请求异常，例如机器人被禁言或没有权限等
-            Console.WriteLine($"消息转发失败，原因：{ex.Message}");
-            // 可以选择将错误消息发送回管理员
-            await botClient.SendTextMessageAsync(
-                chatId: ADMIN_ID,
-                text: $"消息转发失败，原因：{ex.Message}"
-            );
+            // 检查是否因为群聊不存在而导致的错误
+            if (ex.Message.Contains("chat not found"))
+            {
+                Console.WriteLine("目标群聊不存在，消息未发送。");
+            }
+            else
+            {
+                // 处理其他类型的 Telegram API 请求异常，例如机器人被禁言或没有权限等
+                Console.WriteLine($"消息转发失败，原因：{ex.Message}");
+                // 可以选择将错误消息发送回管理员
+                await botClient.SendTextMessageAsync(
+                    chatId: ADMIN_ID,
+                    text: $"消息转发失败，原因：{ex.Message}"
+                );
+            }
         }
         catch (Exception ex)
         {
@@ -12742,7 +12747,7 @@ if (shouldPin)
     }
 }
 // 检查是否接收到了 /laoaomen 消息，收到就查询老澳门六合彩开奖结果
-if (messageText.StartsWith("/laoaomen"))
+if (messageText.StartsWith("\U0001F4E1老澳开奖"))
 {
     var lotteryResult = await LotteryFetcher.FetchLotteryResultAsync();
 
@@ -12793,7 +12798,7 @@ if (messageText.StartsWith("/lamzhishu"))
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
-                        if (count < 2)
+                        if (count < 999) // 修改这里的次数限制为999
                         {
                             // 查询次数未达3次，允许查询
                             allowQuery = true;
@@ -12820,7 +12825,7 @@ if (messageText.StartsWith("/lamzhishu"))
                         // 用户不在群组中，提示加入群组
                         var keyboard = new InlineKeyboardMarkup(new InlineKeyboardButton[]
                         {
-                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/+b4NunT6Vwf0wZWI1")
+                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/Trx_Robo")
                         });
 
                         await botClient.SendTextMessageAsync(
@@ -12879,7 +12884,7 @@ if (messageText.StartsWith("/lamzhishu"))
     }
 }
 // 检查是否接收到了 /xinaomen 消息，收到就查询新澳门六合彩开奖结果
-if (messageText.StartsWith("/xinaomen"))
+if (messageText.StartsWith("\U0001F514新澳开奖"))
 {
     var lotteryResult = await NewLotteryFetcher.FetchLotteryResultAsync();
 
@@ -12931,7 +12936,7 @@ if (messageText.StartsWith("/xamzhishu"))
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
-                        if (count < 2)
+                        if (count < 999) // 修改这里的次数限制为999
                         {
                             // 查询次数未达3次，允许查询
                             allowQuery = true;
@@ -12958,7 +12963,7 @@ if (messageText.StartsWith("/xamzhishu"))
                         // 用户不在群组中，提示加入群组
                         var keyboard = new InlineKeyboardMarkup(new InlineKeyboardButton[]
                         {
-                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/+b4NunT6Vwf0wZWI1")
+                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/Trx_Robo")
                         });
 
                         await botClient.SendTextMessageAsync(
@@ -13017,7 +13022,7 @@ if (messageText.StartsWith("/xamzhishu"))
     }
 }
 // 检查是否接收到了 /xianggang 消息，收到就查询香港六合彩开奖结果
-if (messageText.StartsWith("/xianggang"))
+if (messageText.StartsWith("\U00002705香港开奖"))
 {
     var lotteryResult = await LotteryFetcherr.FetchHongKongLotteryResultAsync();
 
@@ -13066,7 +13071,7 @@ if (messageText.StartsWith("/xgzhishu"))
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
-                        if (count < 2)
+                        if (count < 999) // 修改这里的次数限制为999
                         {
                             // 查询次数未达3次，允许查询
                             allowQuery = true;
@@ -13093,7 +13098,7 @@ if (messageText.StartsWith("/xgzhishu"))
                         // 用户不在群组中，提示加入群组
                         var keyboard = new InlineKeyboardMarkup(new InlineKeyboardButton[]
                         {
-                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/+b4NunT6Vwf0wZWI1")
+                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/Trx_Robo")
                         });
 
                         await botClient.SendTextMessageAsync(
@@ -13380,7 +13385,7 @@ if (message.Type == MessageType.Text && message.Text.StartsWith("/jiankong"))
         // 如果机器人没有权限，忽略异常
     }
 }
-if (messageText.Contains("费用") || messageText.Contains("能量") || messageText.Contains("/tron") || messageText.Contains("手续费") || messageText.Contains("能量租赁"))
+if (messageText.Contains("费用") || messageText.Contains("123") || messageText.Contains("/tron") || messageText.Contains("手续费") || messageText.Contains("能量租赁"))
 {
     // 向用户发送能量介绍
     string multisigText = @"波场手续费说明（⚠️务必仔细阅读⚠️）
@@ -13456,7 +13461,7 @@ if (messageText.Contains("费用") || messageText.Contains("能量") || messageT
         );
     }	
 }
-if (messageText.Contains("作者") || messageText.Contains("管理") || messageText.Contains("你好") || messageText.Contains("在吗")|| messageText.Contains("？")|| messageText.Contains("如何")|| messageText.Contains("怎么")|| messageText.Contains("?"))
+if (messageText.Contains("作者") || messageText.Contains("⚠️双向联系") || messageText.Contains("你好") || messageText.Contains("在吗")|| messageText.Contains("？")|| messageText.Contains("如何")|| messageText.Contains("怎么")|| messageText.Contains("?"))
 {
     // 向用户发送作者联系信息
     string contactText = @"双向用户可以直接私聊机器人，作者会第一时间回复您！";
@@ -13508,7 +13513,7 @@ if (zijinCommandRegex.IsMatch(message.Text))
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
-                        if (count < 2)
+                        if (count < 999) // 修改这里的次数限制为999
                         {
                             // 查询次数未达3次，允许查询
                             allowQuery = true;
@@ -13535,7 +13540,7 @@ if (zijinCommandRegex.IsMatch(message.Text))
                         // 用户不在群组中，提示加入群组
                         var keyboard = new InlineKeyboardMarkup(new InlineKeyboardButton[]
                         {
-                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/+b4NunT6Vwf0wZWI1")
+                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/Trx_Robo")
                         });
 
                         await botClient.SendTextMessageAsync(
@@ -13595,7 +13600,7 @@ if (zijinCommandRegex.IsMatch(message.Text))
     }
 } 
 // 检查是否接收到了 z0 或 /usdt 消息，收到就查询USDT价格
-if (messageText.StartsWith("z0") || messageText.StartsWith("/usdt")| messageText.StartsWith("zo"))
+if (messageText.StartsWith("z0") || messageText.StartsWith("/usdt")| messageText.StartsWith("\U0001F4B9汇率查询"))
 {
     // 启动查询USDT价格的方法
     _ = OkxPriceFetcher.GetUsdtPriceAsync(messageText)
@@ -13751,7 +13756,7 @@ if (faxianCommandRegex.IsMatch(message.Text))
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
-                        if (count < 2)
+                        if (count < 999) // 修改这里的次数限制为999
                         {
                             // 查询次数未达3次，允许查询
                             allowQuery = true;
@@ -13778,7 +13783,7 @@ if (faxianCommandRegex.IsMatch(message.Text))
                         // 用户不在群组中，提示加入群组
                         var keyboard = new InlineKeyboardMarkup(new InlineKeyboardButton[]
                         {
-                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/+b4NunT6Vwf0wZWI1")
+                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/Trx_Robo")
                         });
 
                         await botClient.SendTextMessageAsync(
@@ -14138,27 +14143,6 @@ if (messageText.StartsWith("/gongtongqunzu"))
         );
     }
 }   
-// 检查消息是否为纯数字，如果是，则计算上涨和下跌的数据
-if (decimal.TryParse(messageText, out decimal number))
-{
-    var responseText = new StringBuilder($"{number} 涨跌 1-10% 数据\n\n");
-
-    for (int i = 1; i <= 10; i++)
-    {
-        decimal downPercentage = 1m - (i / 100m);
-        decimal upPercentage = 1m + (i / 100m);
-        decimal down = Math.Round(number * downPercentage, 8, MidpointRounding.AwayFromZero); // 下跌
-        decimal up = Math.Round(number * upPercentage, 8, MidpointRounding.AwayFromZero); // 上涨
-        responseText.AppendLine($"`- {i}%  {down} | {up}  +{i}%`");
-    }
-
-    _ = botClient.SendTextMessageAsync(
-        chatId: message.Chat.Id,
-        text: responseText.ToString(),
-        parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown
-	//replyToMessageId: message.MessageId // 这里引用用户的消息ID    
-    );
-}
 else if (messageText.Contains("~") || messageText.Contains("～"))
 {
     var parts = messageText.Split(new[] { '~', '～' }, StringSplitOptions.RemoveEmptyEntries);
@@ -14214,7 +14198,7 @@ if (messageText.StartsWith("/jisuzhangdie") || messageText.Contains("市场异�
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
-                        if (count < 2)
+                        if (count < 999) // 修改这里的次数限制为999
                         {
                             // 查询次数未达3次，允许查询
                             allowQuery = true;
@@ -14241,7 +14225,7 @@ if (messageText.StartsWith("/jisuzhangdie") || messageText.Contains("市场异�
                         // 用户不在群组中，提示加入群组
                         var keyboard = new InlineKeyboardMarkup(new InlineKeyboardButton[]
                         {
-                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/+b4NunT6Vwf0wZWI1")
+                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/Trx_Robo")
                         });
 
                         await botClient.SendTextMessageAsync(
@@ -14371,7 +14355,7 @@ if (messageText.StartsWith("/caifu") || messageText.Equals("财富密码"))
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
-                        if (count < 2)
+                        if (count < 999) // 修改这里的次数限制为999
                         {
                             // 查询次数未达3次，允许查询
                             allowQuery = true;
@@ -14398,7 +14382,7 @@ if (messageText.StartsWith("/caifu") || messageText.Equals("财富密码"))
                         // 用户不在群组中，提示加入群组
                         var keyboard = new InlineKeyboardMarkup(new InlineKeyboardButton[]
                         {
-                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/+b4NunT6Vwf0wZWI1")
+                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/Trx_Robo")
                         });
 
                         await botClient.SendTextMessageAsync(
@@ -14488,7 +14472,7 @@ if (messageText.StartsWith("/1hshuju"))
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
-                        if (count < 2)
+                        if (count < 999) // 修改这里的次数限制为999
                         {
                             // 查询次数未达3次，允许查询
                             allowQuery = true;
@@ -14515,7 +14499,7 @@ if (messageText.StartsWith("/1hshuju"))
                         // 用户不在群组中，提示加入群组
                         var keyboard = new InlineKeyboardMarkup(new InlineKeyboardButton[]
                         {
-                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/+b4NunT6Vwf0wZWI1")
+                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/Trx_Robo")
                         });
 
                         await botClient.SendTextMessageAsync(
@@ -14595,7 +14579,7 @@ if (messageText.StartsWith("/24hshuju"))
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
-                        if (count < 2)
+                        if (count < 999) // 修改这里的次数限制为999
                         {
                             // 查询次数未达3次，允许查询
                             allowQuery = true;
@@ -14622,7 +14606,7 @@ if (messageText.StartsWith("/24hshuju"))
                         // 用户不在群组中，提示加入群组
                         var keyboard = new InlineKeyboardMarkup(new InlineKeyboardButton[]
                         {
-                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/+b4NunT6Vwf0wZWI1")
+                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/Trx_Robo")
                         });
 
                         await botClient.SendTextMessageAsync(
@@ -14696,7 +14680,7 @@ else if (messageText.StartsWith("/7dshuju"))
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
-                        if (count < 2)
+                        if (count < 999) // 修改这里的次数限制为999
                         {
                             // 查询次数未达3次，允许查询
                             allowQuery = true;
@@ -14723,7 +14707,7 @@ else if (messageText.StartsWith("/7dshuju"))
                         // 用户不在群组中，提示加入群组
                         var keyboard = new InlineKeyboardMarkup(new InlineKeyboardButton[]
                         {
-                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/+b4NunT6Vwf0wZWI1")
+                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/Trx_Robo")
                         });
 
                         await botClient.SendTextMessageAsync(
@@ -14980,7 +14964,7 @@ if (message.Text.StartsWith("/provip") || message.Text.StartsWith("/start provip
     }
 }
 // 检查是否接收到了 "签到" 消息或 "/qiand" 命令
-if (message.Text.Equals("签到", StringComparison.OrdinalIgnoreCase) || message.Text.Equals("/qiand", StringComparison.OrdinalIgnoreCase))
+if (message.Text.Equals("\U0001F4F1一键签到", StringComparison.OrdinalIgnoreCase) || message.Text.Equals("/qiand", StringComparison.OrdinalIgnoreCase))
 {
     try
     {
@@ -14989,7 +14973,7 @@ if (message.Text.Equals("签到", StringComparison.OrdinalIgnoreCase) || message
         {
             InlineKeyboardMarkup inlineKeyboard = new InlineKeyboardMarkup(new[]
             {
-                InlineKeyboardButton.WithUrl("机器人交流群", "https://t.me/+b4NunT6Vwf0wZWI1")
+                InlineKeyboardButton.WithUrl("机器人交流群", "https://t.me/trxduihuan7777")
             });
 
             await botClient.SendTextMessageAsync(
@@ -15145,7 +15129,7 @@ if (message.Text.StartsWith("赠送", StringComparison.OrdinalIgnoreCase))
     }
 }
 // 检查是否接收到了 "/jifensc" 命令
-if (message.Text.Equals("/jifensc", StringComparison.OrdinalIgnoreCase))
+if (message.Text.Equals("\U0001F381兑换礼品", StringComparison.OrdinalIgnoreCase))
 {
     try
     {
@@ -15158,19 +15142,19 @@ if (message.Text.Equals("/jifensc", StringComparison.OrdinalIgnoreCase))
             userPoints = userInfo.Points;
         }
 
-        string replyMessage = $"您当前积分为：<b>{userPoints}</b> 签到积分\n\n" +
+        string replyMessage = "\U0001F381兑换礼品\n\n" +
+                              $"您当前积分为：<b>{userPoints}</b> 签到积分\n\n" +
                               "兑换3个月电报会员：99积分\n" +
                               "兑换6个月电报会员：188积分\n" +
                               "兑换12个月电报会员：300积分\n" +
-                              "兑换 FF Pro 会员： 1小时=2积分\n\n" +
-                              "更多精彩即将到来......";
+                              "更多精彩敬请关注......";
 
         var inlineKeyboard = new InlineKeyboardMarkup(new[]
         {
             new [] // 第一行按钮
             {
                 InlineKeyboardButton.WithCallbackData("兑换电报会员", "/duihuandbvip"),
-                InlineKeyboardButton.WithCallbackData("兑换 FF Pro会员", "/duihuanprovip")
+                InlineKeyboardButton.WithSwitchInlineQuery("分享给小伙伴", "") // 修改这里
             }
         });
 
@@ -15686,6 +15670,59 @@ if (messageText.StartsWith("/yi") || messageText.Contains("U兑TRX"))
     }
 }
 */ 
+// 检查收到的消息并根据内容发送相应的链接和按钮
+if (messageText.Contains("⚠️灰产新闻"))
+{
+    var inlineKeyboard = new InlineKeyboardMarkup(new[]
+    {
+        InlineKeyboardButton.WithUrl("点击进入", "https://t.me/b144444444")
+    });
+
+    await botClient.SendTextMessageAsync(
+        chatId: message.Chat.Id,
+        text: "https://t.me/b144444444",
+        replyMarkup: inlineKeyboard
+    );
+}
+else if (messageText.Contains("\U0001F51E午夜激情"))
+{
+    var inlineKeyboard = new InlineKeyboardMarkup(new[]
+    {
+        InlineKeyboardButton.WithUrl("点击进入", "https://t.me/b144444444")
+    });
+
+    await botClient.SendTextMessageAsync(
+        chatId: message.Chat.Id,
+        text: "https://t.me/b144444444",
+        replyMarkup: inlineKeyboard
+    );
+}
+else if (messageText.Contains("\U0001F465官方大群"))
+{
+    var inlineKeyboard = new InlineKeyboardMarkup(new[]
+    {
+        InlineKeyboardButton.WithUrl("点击加入", "https://t.me/b144444444")
+    });
+
+    await botClient.SendTextMessageAsync(
+        chatId: message.Chat.Id,
+        text: "https://t.me/b144444444",
+        replyMarkup: inlineKeyboard
+    );
+}
+else if (messageText.Contains("\U0001F469\U0000200D\U0001F4BB预支能量"))
+{
+    var inlineKeyboard = new InlineKeyboardMarkup(new[]
+    {
+        InlineKeyboardButton.WithUrl("请联系上方24小时在线客服预支", "https://t.me/b144444444")
+    });
+
+    await botClient.SendTextMessageAsync(
+        chatId: message.Chat.Id,
+        text: "https://t.me/b144444444",
+        replyMarkup: inlineKeyboard
+    );
+}
 // 检查是否接收到了 /xuni 消息，收到就启动广告
 if (messageText.StartsWith("/xuni"))
 {
@@ -16000,7 +16037,7 @@ else if (messageText.Contains("#")) // 检查消息是否包含#
         {
             var inlineKeyboard = new InlineKeyboardMarkup(new[]
             {
-                InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/+b4NunT6Vwf0wZWI1")
+                InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/Trx_Robo")
             });
 
             await botClient.SendTextMessageAsync(
@@ -16026,7 +16063,7 @@ else if (Regex.IsMatch(messageText, @"^trx\s+\d{4}/\d{2}/\d{2}\s+\d{2}\.\d{2}$",
     // 如果消息是"TRX+时间"的格式，直接回复用户
     var inlineKeyboard = new InlineKeyboardMarkup(new[]
     {
-        InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/+b4NunT6Vwf0wZWI1")
+        InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/Trx_Robo")
     });
 
     await botClient.SendTextMessageAsync(
@@ -16583,7 +16620,7 @@ if (messageText.StartsWith("/bijiacha"))
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
-                        if (count < 2)
+                        if (count < 999) // 修改这里的次数限制为999
                         {
                             // 查询次数未达3次，允许查询
                             allowQuery = true;
@@ -16610,7 +16647,7 @@ if (messageText.StartsWith("/bijiacha"))
                         // 用户不在群组中，提示加入群组
                         var keyboard = new InlineKeyboardMarkup(new InlineKeyboardButton[]
                         {
-                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/+b4NunT6Vwf0wZWI1")
+                            InlineKeyboardButton.WithUrl("点击加入交流群", "https://t.me/Trx_Robo")
                         });
 
                         await botClient.SendTextMessageAsync(
@@ -17083,14 +17120,6 @@ if (messageText.StartsWith("代解") && message.From.Id == 5436857956)
         Console.WriteLine($"代解请求格式错误，接收到的消息：{messageText}"); // 添加调试输出
     }
 }
-// 检查是否接收到了 "预支" 消息，收到就发送指定文本
-if (messageText.StartsWith("预支"))
-{
-    string adminUsername = "b144444444";
-    string adminLink = $"https://t.me/{adminUsername}";
-    string responseText = "请发送需要预支TRX的钱包地址查询是否满足要求：\n同时满足2点即可预支：\n⚠️仅限累计兑换 500 USDT 以上地址，\n⚠️地址余额大于 500 USDT且TRX余额低于13，\n⚠️预支的TRX能量仅够您向本机器人转账一次。\n\n如果查询满足条件，可<a href=\"" + adminLink + "\">联系管理员</a>直接预支TRX能量！";
-    await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: responseText, parseMode: Telegram.Bot.Types.Enums.ParseMode.Html, disableWebPagePreview: true);
-}  
 if (messageText.StartsWith("/zjdh"))
 {
     var transferHistoryText = await TronscanHelper.GetTransferHistoryAsync();
@@ -17243,7 +17272,7 @@ else
         {
             "/start" => Start(botClient, message),
             "/fu" => Valuation(botClient, message),
-            "U兑TRX" => ConvertCoinTRX(botClient, message), // 添加这一行
+            "\U0001F525U兑TRX" => ConvertCoinTRX(botClient, message), // 添加这一行
             "实时汇率" => PriceTRX(botClient, message), // 添加这一行
             "能量租赁" => zulin(botClient, message), // 添加这一行
             "/yi" => ConvertCoinTRX(botClient, message),
@@ -17793,24 +17822,24 @@ USDT余额： <b>{USDT}</b>
     {
         new [] // 第一行
         {
-            new KeyboardButton("U兑TRX"),
-            new KeyboardButton("实时汇率"),
-            new KeyboardButton("查询余额"),
-            new KeyboardButton("能量租赁"),
+            new KeyboardButton(" \U0001F525U兑TRX"),
+            new KeyboardButton("\U0001F469\U0000200D\U0001F4BB预支能量"),
+            new KeyboardButton("\U0001F4B9汇率查询"),
+            new KeyboardButton("⚠️双向联系"),
         },   
         new [] // 第二行
         {
-            new KeyboardButton("外汇助手"),
-            new KeyboardButton("加密货币"),
-            new KeyboardButton("行情监控"),
-            new KeyboardButton("地址监听"),
+            new KeyboardButton("\U0001F4F1一键签到"),
+            new KeyboardButton("\U0001F381兑换礼品"),
+            new KeyboardButton("⚠️灰产新闻"),
+            new KeyboardButton("\U0001F51E午夜激情"),
         },   
         new [] // 第三行
         {
-            new KeyboardButton("财富密码"),
-            new KeyboardButton("龙虎榜单"),
-            new KeyboardButton("市场异动"),
-            new KeyboardButton("更多功能"),
+            new KeyboardButton("\U0001F465官方大群"),
+            new KeyboardButton("\U00002705香港开奖"),
+            new KeyboardButton(" \U0001F514新澳开奖"),
+            new KeyboardButton("\U0001F4E1老澳开奖"),
         }
     });		
             keyboard.ResizeKeyboard = true;           
@@ -17929,24 +17958,24 @@ bool skipTRXMonitoring = parts.Any(part => part.Equals("TRX", StringComparison.O
     {
         new [] // 第一行
         {
-            new KeyboardButton("U兑TRX"),
-            new KeyboardButton("实时汇率"),
-            new KeyboardButton("查询余额"),
-            new KeyboardButton("能量租赁"),
+            new KeyboardButton(" \U0001F525U兑TRX"),
+            new KeyboardButton("\U0001F469\U0000200D\U0001F4BB预支能量"),
+            new KeyboardButton("\U0001F4B9汇率查询"),
+            new KeyboardButton("⚠️双向联系"),
         },   
         new [] // 第二行
         {
-            new KeyboardButton("外汇助手"),
-            new KeyboardButton("加密货币"),
-            new KeyboardButton("行情监控"),
-            new KeyboardButton("地址监听"),
+            new KeyboardButton("\U0001F4F1一键签到"),
+            new KeyboardButton("\U0001F381兑换礼品"),
+            new KeyboardButton("⚠️灰产新闻"),
+            new KeyboardButton("\U0001F51E午夜激情"),
         },   
         new [] // 第三行
         {
-            new KeyboardButton("财富密码"),
-            new KeyboardButton("龙虎榜单"),
-            new KeyboardButton("市场异动"),
-            new KeyboardButton("更多功能"),
+            new KeyboardButton("\U0001F465官方大群"),
+            new KeyboardButton("\U00002705香港开奖"),
+            new KeyboardButton(" \U0001F514新澳开奖"),
+            new KeyboardButton("\U0001F4E1老澳开奖"),
         }
     });		
                 keyboard.ResizeKeyboard = true; // 调整键盘高度
@@ -18015,24 +18044,24 @@ catch (Telegram.Bot.Exceptions.ApiRequestException ex)
     {
         new [] // 第一行
         {
-            new KeyboardButton("U兑TRX"),
-            new KeyboardButton("实时汇率"),
-            new KeyboardButton("查询余额"),
-            new KeyboardButton("能量租赁"),
+            new KeyboardButton(" \U0001F525U兑TRX"),
+            new KeyboardButton("\U0001F469\U0000200D\U0001F4BB预支能量"),
+            new KeyboardButton("\U0001F4B9汇率查询"),
+            new KeyboardButton("⚠️双向联系"),
         },   
         new [] // 第二行
         {
-            new KeyboardButton("外汇助手"),
-            new KeyboardButton("加密货币"),
-            new KeyboardButton("行情监控"),
-            new KeyboardButton("地址监听"),
+            new KeyboardButton("\U0001F4F1一键签到"),
+            new KeyboardButton("\U0001F381兑换礼品"),
+            new KeyboardButton("⚠️灰产新闻"),
+            new KeyboardButton("\U0001F51E午夜激情"),
         },   
         new [] // 第三行
         {
-            new KeyboardButton("财富密码"),
-            new KeyboardButton("龙虎榜单"),
-            new KeyboardButton("市场异动"),
-            new KeyboardButton("更多功能"),
+            new KeyboardButton("\U0001F465官方大群"),
+            new KeyboardButton("\U00002705香港开奖"),
+            new KeyboardButton(" \U0001F514新澳开奖"),
+            new KeyboardButton("\U0001F4E1老澳开奖"),
         }
     });		
                 keyboard.ResizeKeyboard = true; // 调整键盘高度
@@ -18082,24 +18111,24 @@ async Task<Message> UnBindAddress(ITelegramBotClient botClient, Message message)
     {
         new [] // 第一行
         {
-            new KeyboardButton("U兑TRX"),
-            new KeyboardButton("实时汇率"),
-            new KeyboardButton("查询余额"),
-            new KeyboardButton("能量租赁"),
+            new KeyboardButton(" \U0001F525U兑TRX"),
+            new KeyboardButton("\U0001F469\U0000200D\U0001F4BB预支能量"),
+            new KeyboardButton("\U0001F4B9汇率查询"),
+            new KeyboardButton("⚠️双向联系"),
         },   
         new [] // 第二行
         {
-            new KeyboardButton("外汇助手"),
-            new KeyboardButton("加密货币"),
-            new KeyboardButton("行情监控"),
-            new KeyboardButton("地址监听"),
+            new KeyboardButton("\U0001F4F1一键签到"),
+            new KeyboardButton("\U0001F381兑换礼品"),
+            new KeyboardButton("⚠️灰产新闻"),
+            new KeyboardButton("\U0001F51E午夜激情"),
         },   
         new [] // 第三行
         {
-            new KeyboardButton("财富密码"),
-            new KeyboardButton("龙虎榜单"),
-            new KeyboardButton("市场异动"),
-            new KeyboardButton("更多功能"),
+            new KeyboardButton("\U0001F465官方大群"),
+            new KeyboardButton("\U00002705香港开奖"),
+            new KeyboardButton(" \U0001F514新澳开奖"),
+            new KeyboardButton("\U0001F4E1老澳开奖"),
         }
     });		
     keyboard.ResizeKeyboard = true; // 调整键盘高度
@@ -18146,51 +18175,66 @@ async Task<Message> UnBindAddress(ITelegramBotClient botClient, Message message)
 转帐前，推荐您使用以下命令来接收入账通知
 <code>绑定 Txxxxxxx</code>(您的钱包地址)
 ";
-            if (USDTFeeRate == 0)
-            {
-                msg = @$"
-<b>机器人收款地址:(↓点击自动复制↓</b>):
-                
-<code>{ReciveAddress}</code>    
+if (USDTFeeRate == 0)
+{
+    string realTimeRate = $"{100m.USDT_To_TRX(rate, FeeRate, 0):#.####}";
+    msg = "\U0001F4B9<b>实时汇率 100 U = " + realTimeRate + " TRX</b>\n\n" +
+           "\U0001F525<b>24小时自助ATM兑换机 </b>\n\n" +
+           "\U0001F53B往地址转U，10秒内自动回转TRX\n\n" +
+           $"<code>{ReciveAddress}</code>\n\n" +    
+           "\U0001F53A点地址自动复制,认准尾数<b>8个4 </b>\n\n" +
+           "\U00002705转U即返TRX，全自动兑换TRX\n" +
+           "\U00002705 5U起换，仅支持<b>TRC20-USDT</b>\n\n" +
+           "\U00002705默认回TRX到付款原地址❗️ \n" + 
+           "\U00002705回其他地址需提前联系客服❗️ \n" + 
+           "\U0001F469\U0000200D\U0001F4BB @b144444444   (24小时客服)";
 
-操作示例：
-<code>转入金额：<b>100 USDT</b>
-实时汇率：</code><del>100 USDT = {95m.USDT_To_TRX(rate, FeeRate, 0):#.####} TRX</del>
-<code>您的优惠汇率：<b>100 USDT = {100m.USDT_To_TRX(rate, FeeRate, 0):#.####} TRX</b>    
-可获得TRX：<b>100 * {1m.USDT_To_TRX(rate, FeeRate, 0):#.####} = {100m.USDT_To_TRX(rate, FeeRate, USDTFeeRate):0.00} TRX</b></code>
+}
+
+    // 发送完整的消息
+    await botClient.SendTextMessageAsync(
+        chatId: message.Chat.Id,
+        text: msg,
+        parseMode: Telegram.Bot.Types.Enums.ParseMode.Html,
+        disableWebPagePreview: true
+    );
+
+    // 延迟100毫秒后发送接收地址
+    await Task.Delay(100);  // 延迟0.1秒
+
+    // 单独发送接收地址
+    await botClient.SendTextMessageAsync(
+        chatId: message.Chat.Id,
+        text: $"<code>{ReciveAddress}</code>",
+        parseMode: Telegram.Bot.Types.Enums.ParseMode.Html,
+        disableWebPagePreview: true
+    );
+
+    return null; // 返回null或适当的响应
     
-注意：<b>只支持 {MinUSDT} USDT以上的金额兑换！</b>    
-只限钱包转账，自动原地址返TRX，如需兑换到其它地址请{adminText}！
-
-转帐前，推荐您绑定钱包地址来接收交易通知： 
-发送：<code>绑定 Txxxxxxx</code>(您的钱包地址)         {leftPointingIndex} <b>推荐使用！！！</b> 
-
-
-";
-            }
     // 创建包含三行，每行4个按钮的虚拟键盘
     var keyboard = new ReplyKeyboardMarkup(new[]
     {
         new [] // 第一行
         {
-            new KeyboardButton("U兑TRX"),
-            new KeyboardButton("实时汇率"),
-            new KeyboardButton("查询余额"),
-            new KeyboardButton("能量租赁"),
+            new KeyboardButton(" \U0001F525U兑TRX"),
+            new KeyboardButton("\U0001F469\U0000200D\U0001F4BB预支能量"),
+            new KeyboardButton("\U0001F4B9汇率查询"),
+            new KeyboardButton("⚠️双向联系"),
         },   
         new [] // 第二行
         {
-            new KeyboardButton("外汇助手"),
-            new KeyboardButton("加密货币"),
-            new KeyboardButton("行情监控"),
-            new KeyboardButton("地址监听"),
+            new KeyboardButton("\U0001F4F1一键签到"),
+            new KeyboardButton("\U0001F381兑换礼品"),
+            new KeyboardButton("⚠️灰产新闻"),
+            new KeyboardButton("\U0001F51E午夜激情"),
         },   
         new [] // 第三行
         {
-            new KeyboardButton("财富密码"),
-            new KeyboardButton("龙虎榜单"),
-            new KeyboardButton("市场异动"),
-            new KeyboardButton("更多功能"),
+            new KeyboardButton("\U0001F465官方大群"),
+            new KeyboardButton("\U00002705香港开奖"),
+            new KeyboardButton(" \U0001F514新澳开奖"),
+            new KeyboardButton("\U0001F4E1老澳开奖"),
         }
     });		
             keyboard.ResizeKeyboard = true; // 将键盘高度设置为最低
@@ -18276,24 +18320,24 @@ async Task<Message> PriceTRX(ITelegramBotClient botClient, Message message)
     {
         new [] // 第一行
         {
-            new KeyboardButton("U兑TRX"),
-            new KeyboardButton("实时汇率"),
-            new KeyboardButton("查询余额"),
-            new KeyboardButton("能量租赁"),
+            new KeyboardButton(" \U0001F525U兑TRX"),
+            new KeyboardButton("\U0001F469\U0000200D\U0001F4BB预支能量"),
+            new KeyboardButton("\U0001F4B9汇率查询"),
+            new KeyboardButton("⚠️双向联系"),
         },   
         new [] // 第二行
         {
-            new KeyboardButton("外汇助手"),
-            new KeyboardButton("加密货币"),
-            new KeyboardButton("行情监控"),
-            new KeyboardButton("地址监听"),
+            new KeyboardButton("\U0001F4F1一键签到"),
+            new KeyboardButton("\U0001F381兑换礼品"),
+            new KeyboardButton("⚠️灰产新闻"),
+            new KeyboardButton("\U0001F51E午夜激情"),
         },   
         new [] // 第三行
         {
-            new KeyboardButton("财富密码"),
-            new KeyboardButton("龙虎榜单"),
-            new KeyboardButton("市场异动"),
-            new KeyboardButton("更多功能"),
+            new KeyboardButton("\U0001F465官方大群"),
+            new KeyboardButton("\U00002705香港开奖"),
+            new KeyboardButton(" \U0001F514新澳开奖"),
+            new KeyboardButton("\U0001F4E1老澳开奖"),
         }
     });		
 
@@ -18338,26 +18382,6 @@ static async Task<Message> Start(ITelegramBotClient botClient, Message message)
     // 检查消息是否仅为 "/start"，不带任何参数
     if (message.Text.Trim().Equals("/start"))
     {
-        long userId = message.From.Id;
-        var userProfilePhotos = await botClient.GetUserProfilePhotosAsync(userId);
-        if (userProfilePhotos.Photos.Length > 0 && userProfilePhotos.Photos[0].Length > 0)
-        {
-            // 选择最小尺寸的头像版本
-            var smallestPhotoSize = userProfilePhotos.Photos[0][0];
-            await botClient.SendPhotoAsync(
-                chatId: message.Chat.Id,
-                photo: new InputOnlineFile(smallestPhotoSize.FileId)
-            );
-        }
-        else
-        {
-            // 用户没有头像或无法获取，发送默认GIF
-            string gifUrl = "https://i.postimg.cc/wBLfLTYY/50041530058-dca5c29005-b.jpg";
-            await botClient.SendAnimationAsync(
-                chatId: message.Chat.Id,
-                animation: gifUrl
-            );
-        }
 
         // 发送欢迎消息和键盘
         string username = message.From.FirstName;
@@ -18367,15 +18391,9 @@ static async Task<Message> Start(ITelegramBotClient botClient, Message message)
         string groupFunctionText = $"<a href=\"{shareLink}\">⚠️ 点击拉我进群，有人修改资料将播报提醒！</a>";
         string uCardText = $"\U0001F4B3 免实名USDT消费卡-享全球消费\U0001F449 /ucard ";
 
-        string usage = @$"<b>{username}</b> 你好，欢迎使用TRX自助兑换机器人！
+        string usage = @$"欢迎您的加入，感谢您的信任！
 
-使用方法：
-   点击菜单 选择 <b>U兑TRX</b>
-   转账USDT到指定地址，即可秒回TRX！
-   如需了解机器人功能介绍，直接点击：/help
-   
-{groupFunctionText}
-{uCardText}
+
 ";
 
         // 创建包含三行，每行4个按钮的虚拟键盘
@@ -18383,37 +18401,50 @@ static async Task<Message> Start(ITelegramBotClient botClient, Message message)
         {
             new [] // 第一行
             {
-                new KeyboardButton("U兑TRX"),
-                new KeyboardButton("实时汇率"),
-                new KeyboardButton("查询余额"),
-                new KeyboardButton("能量租赁"),
+                new KeyboardButton(" \U0001F525U兑TRX"),
+                new KeyboardButton("\U0001F469\U0000200D\U0001F4BB预支能量"),
+                new KeyboardButton("\U0001F4B9汇率查询"),
+                new KeyboardButton("⚠️双向联系"),
             },   
             new [] // 第二行
             {
-                new KeyboardButton("外汇助手"),
-                new KeyboardButton("加密货币"),
-                new KeyboardButton("行情监控"),
-                new KeyboardButton("地址监听"),
+                new KeyboardButton("\U0001F4F1一键签到"),
+                new KeyboardButton("\U0001F381兑换礼品"),
+                new KeyboardButton("⚠️灰产新闻"),
+                new KeyboardButton("\U0001F51E午夜激情"),
             },   
             new [] // 第三行
             {
-                new KeyboardButton("财富密码"),
-                new KeyboardButton("龙虎榜单"),
-                new KeyboardButton("市场异动"),
-                new KeyboardButton("更多功能"),
+                new KeyboardButton("\U0001F465官方大群"),
+                new KeyboardButton("\U00002705香港开奖"),
+                new KeyboardButton(" \U0001F514新澳开奖"),
+                new KeyboardButton("\U0001F4E1老澳开奖"),
             }
         });		
 
         keyboard.ResizeKeyboard = true; // 将键盘高度设置为最低
         keyboard.OneTimeKeyboard = false; // 添加这一行，确保虚拟键盘在用户与其交互后不会消失。
 
-        return await botClient.SendTextMessageAsync(
+        await botClient.SendTextMessageAsync(
             chatId: message.Chat.Id,
             text: usage,
             parseMode: ParseMode.Html,
             disableWebPagePreview: true,
             replyMarkup: keyboard
         );
+
+        // 发送分享按钮
+        var inlineKeyboard = new InlineKeyboardMarkup(new[]
+        {
+            InlineKeyboardButton.WithSwitchInlineQuery("♻️分享机器人给好友，极速兑换TRX！", "\n关注机器人，以备不时之需\n防失联域名： huantrx.com\n全网最安全靠谱的USDT闪兑TRX机器人\n\nhttps://t.me/b144444444_bot")
+        });
+
+        return await botClient.SendTextMessageAsync(
+            chatId: message.Chat.Id,
+            text: "防失联域名： huantrx.com （换Trx）",
+            parseMode: ParseMode.Html,
+            replyMarkup: inlineKeyboard
+        );        
     }
     else
     {
@@ -18461,24 +18492,24 @@ static async Task<Message> Start(ITelegramBotClient botClient, Message message)
     {
         new [] // 第一行
         {
-            new KeyboardButton("U兑TRX"),
-            new KeyboardButton("实时汇率"),
-            new KeyboardButton("查询余额"),
-            new KeyboardButton("能量租赁"),
+            new KeyboardButton(" \U0001F525U兑TRX"),
+            new KeyboardButton("\U0001F469\U0000200D\U0001F4BB预支能量"),
+            new KeyboardButton("\U0001F4B9汇率查询"),
+            new KeyboardButton("⚠️双向联系"),
         },   
         new [] // 第二行
         {
-            new KeyboardButton("外汇助手"),
-            new KeyboardButton("加密货币"),
-            new KeyboardButton("行情监控"),
-            new KeyboardButton("地址监听"),
+            new KeyboardButton("\U0001F4F1一键签到"),
+            new KeyboardButton("\U0001F381兑换礼品"),
+            new KeyboardButton("⚠️灰产新闻"),
+            new KeyboardButton("\U0001F51E午夜激情"),
         },   
         new [] // 第三行
         {
-            new KeyboardButton("财富密码"),
-            new KeyboardButton("龙虎榜单"),
-            new KeyboardButton("市场异动"),
-            new KeyboardButton("更多功能"),
+            new KeyboardButton("\U0001F465官方大群"),
+            new KeyboardButton("\U00002705香港开奖"),
+            new KeyboardButton(" \U0001F514新澳开奖"),
+            new KeyboardButton("\U0001F4E1老澳开奖"),
         }
     });		
 
@@ -18502,24 +18533,24 @@ static async Task<Message> zulin(ITelegramBotClient botClient, Message message)
     {
         new [] // 第一行
         {
-            new KeyboardButton("U兑TRX"),
-            new KeyboardButton("实时汇率"),
-            new KeyboardButton("查询余额"),
-            new KeyboardButton("能量租赁"),
+            new KeyboardButton(" \U0001F525U兑TRX"),
+            new KeyboardButton("\U0001F469\U0000200D\U0001F4BB预支能量"),
+            new KeyboardButton("\U0001F4B9汇率查询"),
+            new KeyboardButton("⚠️双向联系"),
         },   
         new [] // 第二行
         {
-            new KeyboardButton("外汇助手"),
-            new KeyboardButton("加密货币"),
-            new KeyboardButton("行情监控"),
-            new KeyboardButton("地址监听"),
+            new KeyboardButton("\U0001F4F1一键签到"),
+            new KeyboardButton("\U0001F381兑换礼品"),
+            new KeyboardButton("⚠️灰产新闻"),
+            new KeyboardButton("\U0001F51E午夜激情"),
         },   
         new [] // 第三行
         {
-            new KeyboardButton("财富密码"),
-            new KeyboardButton("龙虎榜单"),
-            new KeyboardButton("市场异动"),
-            new KeyboardButton("更多功能"),
+            new KeyboardButton("\U0001F465官方大群"),
+            new KeyboardButton("\U00002705香港开奖"),
+            new KeyboardButton(" \U0001F514新澳开奖"),
+            new KeyboardButton("\U0001F4E1老澳开奖"),
         }
     });		
 
@@ -18618,24 +18649,24 @@ static async Task<Message> ExecuteZjdhMethodAsync(ITelegramBotClient botClient, 
     {
         new [] // 第一行
         {
-            new KeyboardButton("U兑TRX"),
-            new KeyboardButton("实时汇率"),
-            new KeyboardButton("查询余额"),
-            new KeyboardButton("能量租赁"),
+            new KeyboardButton(" \U0001F525U兑TRX"),
+            new KeyboardButton("\U0001F469\U0000200D\U0001F4BB预支能量"),
+            new KeyboardButton("\U0001F4B9汇率查询"),
+            new KeyboardButton("⚠️双向联系"),
         },   
         new [] // 第二行
         {
-            new KeyboardButton("外汇助手"),
-            new KeyboardButton("加密货币"),
-            new KeyboardButton("行情监控"),
-            new KeyboardButton("地址监听"),
+            new KeyboardButton("\U0001F4F1一键签到"),
+            new KeyboardButton("\U0001F381兑换礼品"),
+            new KeyboardButton("⚠️灰产新闻"),
+            new KeyboardButton("\U0001F51E午夜激情"),
         },   
         new [] // 第三行
         {
-            new KeyboardButton("财富密码"),
-            new KeyboardButton("龙虎榜单"),
-            new KeyboardButton("市场异动"),
-            new KeyboardButton("更多功能"),
+            new KeyboardButton("\U0001F465官方大群"),
+            new KeyboardButton("\U00002705香港开奖"),
+            new KeyboardButton(" \U0001F514新澳开奖"),
+            new KeyboardButton("\U0001F4E1老澳开奖"),
         }
     });		
             keyboard.ResizeKeyboard = true; // 将键盘高度设置为最低
