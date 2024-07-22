@@ -4350,14 +4350,14 @@ private static CancellationTokenSource virtualAdCancellationTokenSource = new Ca
 static async Task SendVirtualAdvertisement(ITelegramBotClient botClient, CancellationToken cancellationToken, IBaseRepository<TokenRate> rateRepository, decimal FeeRate)
 {
     var random = new Random();
-    var amounts = new decimal[] { 50, 100, 150, 200, 300, 400, 500, 1000 };
+    var amounts = new decimal[] { 5, 10, 50, 500, 200, 20, 100, 1000 };
     var addressChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     bool hasSentAdInQuietHours = false;
     while (!cancellationToken.IsCancellationRequested)
     {
         var now = DateTime.Now;
         var hour = now.Hour;
-        if (hour >= 1 && hour < 8)
+        if (hour >= 1 && hour < 2)
         {
             if (hasSentAdInQuietHours)
             {
@@ -4422,8 +4422,8 @@ static async Task SendVirtualAdvertisement(ITelegramBotClient botClient, Cancell
             }
         }
 
-        // 在1-2分钟内随机等待
-        await Task.Delay(TimeSpan.FromSeconds(random.Next(3600, 4000)), cancellationToken);
+        // 在1-66分钟内随机等待
+        await Task.Delay(TimeSpan.FromSeconds(random.Next(60, 4000)), cancellationToken);
     }
 }
 // 在类的成员变量中定义一个定时器和榜单
@@ -10377,8 +10377,8 @@ var inlineKeyboard = new InlineKeyboardMarkup(new[]
                 }
             }
 
-            // 等待10分钟
-            await Task.Delay(TimeSpan.FromSeconds(600), cancellationToken);
+            // 等待50分钟
+            await Task.Delay(TimeSpan.FromSeconds(3000), cancellationToken);
 
             // 遍历已发送的消息并撤回
             foreach (var sentMessage in sentMessages)
