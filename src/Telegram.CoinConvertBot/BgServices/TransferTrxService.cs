@@ -174,7 +174,7 @@ namespace Telegram.CoinConvertBot.BgServices
 -----------------------------
 余额：<b>{TRX} TRX</b>
 已用带宽：<b>{account.FreeNetUsage + account.NetUsage}</b>
-", Bot.Types.Enums.ParseMode.Html, replyMarkup: inlineKeyboard);
+", Bot.Types.Enums.ParseMode.Html);
                         }
                     }
                     else
