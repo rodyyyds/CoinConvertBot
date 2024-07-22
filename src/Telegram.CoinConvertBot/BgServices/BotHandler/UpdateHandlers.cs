@@ -4422,8 +4422,8 @@ static async Task SendVirtualAdvertisement(ITelegramBotClient botClient, Cancell
             }
         }
 
-        // 在1-2分钟内随机等待
-        await Task.Delay(TimeSpan.FromSeconds(random.Next(1800, 3000)), cancellationToken);
+        // 在5-51分钟内随机等待
+        await Task.Delay(TimeSpan.FromSeconds(random.Next(333, 3333)), cancellationToken);
     }
 }
 // 在类的成员变量中定义一个定时器和榜单
