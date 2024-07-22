@@ -15653,12 +15653,12 @@ if (messageText.Contains("⚠️灰产新闻"))
 {
     var inlineKeyboard = new InlineKeyboardMarkup(new[]
     {
-        InlineKeyboardButton.WithUrl("点击进入", "https://t.me/b144444444")
+        InlineKeyboardButton.WithUrl("点击进入", "https://t.me/huichantoutiao")
     });
 
     await botClient.SendTextMessageAsync(
         chatId: message.Chat.Id,
-        text: "https://t.me/b144444444",
+        text: "https://t.me/huichantoutiao",
         replyMarkup: inlineKeyboard
     );
 }
@@ -15666,12 +15666,12 @@ else if (messageText.Contains("\U0001F51E午夜激情"))
 {
     var inlineKeyboard = new InlineKeyboardMarkup(new[]
     {
-        InlineKeyboardButton.WithUrl("点击进入", "https://t.me/b144444444")
+        InlineKeyboardButton.WithUrl("点击进入", "https://t.me/chengren_Robot")
     });
 
     await botClient.SendTextMessageAsync(
         chatId: message.Chat.Id,
-        text: "https://t.me/b144444444",
+        text: "https://t.me/chengren_Robot",
         replyMarkup: inlineKeyboard
     );
 }
@@ -15679,12 +15679,12 @@ else if (messageText.Contains("\U0001F465官方大群"))
 {
     var inlineKeyboard = new InlineKeyboardMarkup(new[]
     {
-        InlineKeyboardButton.WithUrl("点击加入", "https://t.me/b144444444")
+        InlineKeyboardButton.WithUrl("点击加入", "https://t.me/huantrx44444444")
     });
 
     await botClient.SendTextMessageAsync(
         chatId: message.Chat.Id,
-        text: "https://t.me/b144444444",
+        text: "https://t.me/huantrx44444444",
         replyMarkup: inlineKeyboard
     );
 }
