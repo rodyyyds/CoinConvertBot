@@ -11349,7 +11349,7 @@ if (isNumberRange)
         if (!string.IsNullOrWhiteSpace(inputText))
         {
             // 修改正则表达式以匹配带小数点的数字计算
-            var containsKeywordsOrCommandsOrNumbersOrAtSign = Regex.IsMatch(inputText, @"^\/(start|yi|fan|qdgg|yccl|fu|btc|xamzhishu|xgzhishu|lamzhishu|qiand|jifen|shiwukxian|music|mairumaichu|charsi|provip|huiyuanku|zdcrsi|usd|more|usdt|tron|z0|cny|trc|home|jiankong|caifu|help|qunliaoziliao|baocunqunliao|bangdingdizhi|zijin|faxian|chaxun|xuni|ucard|jisuzhangdie|bijiacha|jkbtc)|更多功能|人民币|能量租赁|实时汇率|U兑TRX|合约助手|查询余额|地址监听|加密货币|外汇助手|监控|汇率|^[\d\+\-\*/\.\s]+$|^@");
+            var containsKeywordsOrCommandsOrNumbersOrAtSign = Regex.IsMatch(inputText, @"^\/(start|yi|fan|qdgg|yccl|fu|btc|xamzhishu|xgzhishu|lamzhishu|qiand|shiwukxian|music|mairumaichu|charsi|provip|huiyuanku|zdcrsi|usd|more|usdt|tron|z0|cny|trc|home|jiankong|caifu|help|qunliaoziliao|baocunqunliao|bangdingdizhi|zijin|faxian|chaxun|xuni|ucard|jisuzhangdie|bijiacha|jkbtc)|更多功能|人民币|能量租赁|实时汇率|U兑TRX|合约助手|查询余额|地址监听|加密货币|外汇助手|监控|汇率|^[\d\+\-\*/\.\s]+$|^@");
 
             // 检查输入文本是否为数字+货币的组合
             var isNumberCurrency = Regex.IsMatch(inputText, @"(^\d+\s*[A-Za-z\u4e00-\u9fa5]+$)|(^\d+(\.\d+)?(btc|比特币|eth|以太坊|usdt|泰达币|币安币|bnb|bgb|币记-BGB|okb|欧易-okb|ht|火币积分-HT|瑞波币|xrp|艾达币|ada|狗狗币|doge|shib|sol|莱特币|ltc|link|电报币|ton|比特现金|bch|以太经典|etc|uni|avax|门罗币|xmr)$)", RegexOptions.IgnoreCase);
@@ -13461,7 +13461,7 @@ if (messageText.Contains("费用") || messageText.Contains("123") || messageText
         );
     }	
 }
-if (messageText.Contains("作者") || messageText.Contains("⚠️双向联系") || messageText.Contains("你好") || messageText.Contains("在吗")|| messageText.Contains("？")|| messageText.Contains("如何")|| messageText.Contains("怎么")|| messageText.Contains("?"))
+if (messageText.Contains("作！者") || messageText.Contains("⚠️双向联系") || messageText.Contains("你！好") || messageText.Contains("在！吗")|| messageText.Contains("！#？")|| messageText.Contains("如！何")|| messageText.Contains("怎！么")|| messageText.Contains("！%?"))
 {
     // 向用户发送作者联系信息
     string contactText = @"双向用户可以直接私聊机器人，作者会第一时间回复您！";
@@ -14968,54 +14968,32 @@ if (message.Text.Equals("\U0001F4F1一键签到", StringComparison.OrdinalIgnore
 {
     try
     {
-        // 如果是私聊
-        if (message.Chat.Type == ChatType.Private)
+        long userId = message.From.Id;
+        DateTime nowBeijingTime = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("China Standard Time"));
+        DateTime todayStart = new DateTime(nowBeijingTime.Year, nowBeijingTime.Month, nowBeijingTime.Day, 0, 0, 0, DateTimeKind.Local);
+
+        if (userSignInInfo.TryGetValue(userId, out var signInInfo) && signInInfo.LastSignInTime >= todayStart)
         {
-            InlineKeyboardMarkup inlineKeyboard = new InlineKeyboardMarkup(new[]
-            {
-                InlineKeyboardButton.WithUrl("机器人交流群", "https://t.me/trxduihuan7777")
-            });
+            // 用户今日已签到
+            await botClient.SendTextMessageAsync(
+                chatId: message.Chat.Id,
+                text: $"签到失败，您今日已签到！\n签到时间：{signInInfo.LastSignInTime:yyyy/MM/dd HH:mm:ss}\n当前总积分：<b>{signInInfo.Points}</b> 积分",
+                parseMode: ParseMode.Html,
+                replyToMessageId: message.MessageId // 添加此行以回复用户的原始消息	
+            );
+        }
+        else
+        {
+            // 用户今日首次签到，增加积分并更新签到时间
+            int newPoints = signInInfo.Points + 1;
+            userSignInInfo[userId] = (newPoints, nowBeijingTime);
 
             await botClient.SendTextMessageAsync(
                 chatId: message.Chat.Id,
-                text: "签到失败，请在交流群或者任意群组进行签到！",
-                replyMarkup: inlineKeyboard,
+                text: $"签到成功！ 积分 + <b>1</b>\n当前总积分：<b>{newPoints}</b>\n签到时间：{nowBeijingTime:yyyy/MM/dd HH:mm:ss}",
                 parseMode: ParseMode.Html,
-	        replyToMessageId: message.MessageId // 添加此行以回复用户的原始消息   
+                replyToMessageId: message.MessageId // 添加此行以回复用户的原始消息	
             );
-            return;
-        }
-
-        // 如果消息来自群组
-        if (message.Chat.Type == ChatType.Group || message.Chat.Type == ChatType.Supergroup)
-        {
-            long userId = message.From.Id;
-            DateTime nowBeijingTime = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("China Standard Time"));
-            DateTime todayStart = new DateTime(nowBeijingTime.Year, nowBeijingTime.Month, nowBeijingTime.Day, 0, 0, 0, DateTimeKind.Local);
-
-            if (userSignInInfo.TryGetValue(userId, out var signInInfo) && signInInfo.LastSignInTime >= todayStart)
-            {
-                // 用户今日已签到
-                await botClient.SendTextMessageAsync(
-                    chatId: message.Chat.Id,
-                    text: $"签到失败，您今日已签到！\n签到时间：{signInInfo.LastSignInTime:yyyy/MM/dd HH:mm:ss}\n当前总积分：<b>{signInInfo.Points}</b> 积分",
-                    parseMode: ParseMode.Html,
-		    replyToMessageId: message.MessageId // 添加此行以回复用户的原始消息	
-                );
-            }
-            else
-            {
-                // 用户今日首次签到，增加积分并更新签到时间
-                int newPoints = signInInfo.Points + 1;
-                userSignInInfo[userId] = (newPoints, nowBeijingTime);
-
-                await botClient.SendTextMessageAsync(
-                    chatId: message.Chat.Id,
-                    text: $"签到成功！ 积分 + <b>1</b>\n当前总积分：<b>{newPoints}</b>\n签到时间：{nowBeijingTime:yyyy/MM/dd HH:mm:ss}",
-                    parseMode: ParseMode.Html,
-		    replyToMessageId: message.MessageId // 添加此行以回复用户的原始消息	
-                );
-            }
         }
     }
     catch (Exception ex)
@@ -15129,7 +15107,7 @@ if (message.Text.StartsWith("赠送", StringComparison.OrdinalIgnoreCase))
     }
 }
 // 检查是否接收到了 "/jifensc" 命令
-if (message.Text.Equals("\U0001F381兑换礼品", StringComparison.OrdinalIgnoreCase) || message.Text.Equals("/jifen", StringComparison.OrdinalIgnoreCase)|| message.Text.Equals("/jifen@b144444444_bot", StringComparison.OrdinalIgnoreCase))
+if (message.Text.Equals("\U0001F381兑换礼品", StringComparison.OrdinalIgnoreCase))
 {
     try
     {
@@ -15154,7 +15132,7 @@ if (message.Text.Equals("\U0001F381兑换礼品", StringComparison.OrdinalIgnore
             new [] // 第一行按钮
             {
                 InlineKeyboardButton.WithCallbackData("兑换电报会员", "/duihuandbvip"),
-                InlineKeyboardButton.WithSwitchInlineQuery("分享给小伙伴", "") // 修改这里
+                InlineKeyboardButton.WithSwitchInlineQuery("分享给小伙伴", "\n关注机器人，以备不时之需\n防失联域名： huantrx.com\n全网最安全靠谱的USDT闪兑TRX机器人\n\nhttps://t.me/b144444444_bot")
             }
         });
 
