@@ -55,7 +55,7 @@ namespace Telegram.CoinConvertBot.BgServices.BotHandler;
 //    static GroupManager()  广告发到指定群聊
 //    {
 //        // 添加初始群组 ID
-//        groupIds.Add(-1002185338536);  // 用你的初始群组 ID 替换 
+//        groupIds.Add(-1002232820212);  // 用你的初始群组 ID 替换 
 //        //groupIds.Add(-994581226);  // 添加第二个初始群组 ID
 //    }
 //    if (message.From.Id == 5436857956 && message.Chat.Type == ChatType.Group)  指定管理员可以发送：开启广告 关闭广告
@@ -10225,7 +10225,7 @@ public static class GroupManager
     static GroupManager()
     {
         // 添加初始群组 ID
-        groupIds.Add(-1002185338536);  // 大号群ID
+        groupIds.Add(-1002232820212);  // 大号群ID
         //groupIds.Add(-917223865);  // 添加第二个初始群组 ID
     }
 
@@ -12794,7 +12794,7 @@ if (messageText.StartsWith("/lamzhishu"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002232820212, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -12932,7 +12932,7 @@ if (messageText.StartsWith("/xamzhishu"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002232820212, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -13067,7 +13067,7 @@ if (messageText.StartsWith("/xgzhishu"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002232820212, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -13509,7 +13509,7 @@ if (zijinCommandRegex.IsMatch(message.Text))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002232820212, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -13752,7 +13752,7 @@ if (faxianCommandRegex.IsMatch(message.Text))
                 // 用户不是VIP，检查是否在群组中
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002232820212, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -14112,7 +14112,7 @@ if (messageText.StartsWith("/gongtongqunzu"))
 {
     var chatId = message.Chat.Id;
     var userId = message.From.Id;
-    var targetGroupId = -1002185338536; // 指定的群组ID
+    var targetGroupId = -1002232820212; // 指定的群组ID
 
     try
     {
@@ -14194,7 +14194,7 @@ if (messageText.StartsWith("/jisuzhangdie") || messageText.Contains("市场异�
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002232820212, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -14351,7 +14351,7 @@ if (messageText.StartsWith("/caifu") || messageText.Equals("财富密码"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002232820212, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -14468,7 +14468,7 @@ if (messageText.StartsWith("/1hshuju"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002232820212, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -14575,7 +14575,7 @@ if (messageText.StartsWith("/24hshuju"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002232820212, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -14676,7 +14676,7 @@ else if (messageText.StartsWith("/7dshuju"))
             {
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002232820212, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
@@ -16576,7 +16576,7 @@ if (messageText.StartsWith("/bijiacha"))
                 // 用户不是VIP，检查是否在群组中
                 try
                 {
-                    var member = await botClient.GetChatMemberAsync(-1002185338536, userId);
+                    var member = await botClient.GetChatMemberAsync(-1002232820212, userId);
                     if (member.Status != ChatMemberStatus.Left && member.Status != ChatMemberStatus.Kicked)
                     {
                         // 用户在群组中，检查查询次数
